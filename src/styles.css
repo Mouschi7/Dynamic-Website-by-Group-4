@@ -117,7 +117,7 @@ img {
       z-index: 5;
       padding: 0.8rem;
       color: var(--real-watchhouse-color);
-      border-bottom: 3px var(--real-watchhouse-color);
+      border-bottom: var(--real-watchhouse-color);
 }
 
 .nav-container {
