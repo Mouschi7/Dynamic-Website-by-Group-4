@@ -10,8 +10,7 @@
                         </div>
                         <div class="nav-logo">
                               <a href="/website/src/home.php">
-                                    <h1 class="logo1">CAFE</h1>
-                                    <h1 class="logo2">CHILL</h1>
+                                    <h1 class="logo-creative">PrintfCafe.</h1>
                               </a>
                         </div>
                         <div class="nav-right">

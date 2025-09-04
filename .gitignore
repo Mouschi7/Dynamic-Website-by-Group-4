@@ -1,0 +1,45 @@
+# ==========================
+# OS / Editor Files
+# ==========================
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+.vscode/
+.idea/
+
+# ==========================
+# Node / Frontend
+# ==========================
+node_modules/
+dist/
+build/
+
+# ==========================
+# PHP / Composer
+# ==========================
+vendor/
+composer.lock
+
+# ==========================
+# Environment / Config
+# ==========================
+config.php      # contains DB credentials
+.env            # if you use dotenv for secrets
+.env.local
+.env.*.local
+
+# ==========================
+# Database / Backups
+# ==========================
+*.sql
+*.sqlite
+*.db
+*.bak
+
+# ==========================
+# Misc
+# ==========================
+*.zip
+*.tar.gz
+*.7z
