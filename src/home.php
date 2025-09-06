@@ -12,7 +12,7 @@
 
       <main>
             <div class="announcement-bar">
-                  <m
+                  
             </div>
             <section class="section hero">
                   <video autoplay muted loop playsinline class="hero-bg">

@@ -116,7 +116,7 @@ img {
       width: 100%;
       z-index: 5;
       padding: 0.8rem;
-      color: var(--real-watchhouse-color);
+
       border-bottom: var(--real-watchhouse-color);
 }
 
@@ -131,6 +131,7 @@ img {
 
 .logo-creative {
       font-size: var(--font-size-xxl);
+      color: var(--real-watchhouse-color);
 }
 
 .nav-left,
@@ -145,7 +146,8 @@ img {
 
 .navbar a {
       font-size: var(--font-size-m);
-      padding: 10 20;
+      padding: 10px 20px;
+      color: var(--real-watchhouse-color);
 }
 
 .section {
@@ -203,5 +205,5 @@ img {
 .hero p {
       position: relative;
       z-index: 2;
-      color: var(--text-color-darkbrown);
+      color: var(--real-watchhouse-color);
 }
