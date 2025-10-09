@@ -5,14 +5,33 @@
 }
 
 @font-face {
+      font-family: "Tiempos";
+      src: url("../fonts/Tiempos/Tiempos-Text-Regular.woff2") format("woff2"),
+            url("../fonts/Tiempos/Tiempos-Text-Regular.woff") format("woff");
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+}
+
+@font-face {
+      font-family: "Balto";
+      src: url("Balto-Medium.eot");
+      src: local("Balto Medium"), local("Balto-Medium"),
+            url("Balto-Medium.eot?#iefix") format("embedded-opentype"),
+            url("../fonts/Balto/Balto-Medium.woff2") format("woff2"),
+            url("../fonts/Balto/Balto-Medium.woff") format("woff"),
+            url("Balto-Medium.ttf") format("truetype");
+      font-weight: 500;
+      font-style: normal;
+}
+
+@font-face {
       font-family: "Francisco-Serial";
       src: url("../fonts/Francisco-Serial-Bold/Francisco-Serial-Bold.woff2")
                   format("woff2"),
             url("../fonts/Francisco-Serial-Bold/Francisco-Serial-Bold.woff")
                   format("woff");
-      font-weight: bold;
       font-style: normal;
-      font-display: swap;
 }
 
 html {
@@ -20,9 +39,9 @@ html {
 }
 
 body {
-      font-family: "Francisco-Serial", sans-serif;
       margin: 0;
       padding: 0;
+      overflow-x: hidden;
       background-color: var(--background-color);
       color: var(--text-color-darkbrown);
       line-height: 1.6;
@@ -104,20 +123,44 @@ img {
       --container-padding: 1rem;
 }
 
+.swiper {
+      display: grid;
+      place-items: center;
+      width: 100%;
+      height: 6vh;
+      background-color: var(--black-color);
+      position: fixed;
+}
+
+.swiper-wrapper {
+      height: 100%;
+}
+
+.swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--real-watchhouse-color);
+      font-size: var(--font-size-n);
+      width: 100%;
+      height: 100%;
+      font-family: "Balto", sans-serif;
+      letter-spacing: 1px;
+      text-align: center;
+}
+
 .navbar {
       display: flex;
-      position: fixed;
-      background-color: #ffd8ae3d;
+      position: sticky;
+      background-color: #ffd8ae00;
       width: 100%;
       left: 0;
-      backdrop-filter: blur(3px);
+      backdrop-filter: opacity(0px);
       box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
       position: fixed;
-      width: 100%;
       z-index: 5;
-      padding: 0.8rem;
-
-      border-bottom: var(--real-watchhouse-color);
+      padding: 0.6rem;
+      border-bottom: 1px solid var(--real-watchhouse-color);
 }
 
 .nav-container {
@@ -132,12 +175,13 @@ img {
 .logo-creative {
       font-size: var(--font-size-xxl);
       color: var(--real-watchhouse-color);
+      font-family: "Francisco-Serial", sans-serif;
 }
 
 .nav-left,
 .nav-right {
       display: flex;
-      gap: 1.5rem;
+      gap: 4rem;
 }
 
 .nav-right {
@@ -145,9 +189,15 @@ img {
 }
 
 .navbar a {
-      font-size: var(--font-size-m);
-      padding: 10px 20px;
+      font-size: var(--font-size-n);
       color: var(--real-watchhouse-color);
+      font-family: "Balto", sans-serif;
+}
+
+.nav-left .bi-caret-down-fill {
+      margin-left: 8px;
+      vertical-align: middle;
+      font-size: 1em;
 }
 
 .section {
@@ -195,7 +245,7 @@ img {
       position: absolute;
       top: 0;
       left: 0;
-      width: 100vw;
+      width: 100%;
       height: 100vh;
       object-fit: cover;
       z-index: 0;

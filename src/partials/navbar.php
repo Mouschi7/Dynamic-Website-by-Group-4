@@ -1,12 +1,19 @@
 
 <header>
+      <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                  <div class="swiper-slide">AYAW NETO GUMITNA KAINIS</div>
+                  <div class="swiper-slide">PISO COFFEE</div>
+                  <div class="swiper-slide">LF CLIENT</div>
+            </div>
+      </div>
             <nav class="navbar">
                   <div class="nav-container">
                         <div class="nav-left">
-                              <a href="/website/src/home.php">Home</a>
-                              <a href="/website/src/about.php">About Us</a>        
-                              <a href="/website/src/menu.php">Menu</a>       
-                              <a href="/website/src/gallery.php">Gallery</a>
+                              <a href="/website/src/home.php">Home.</a>
+                              <a href="/website/src/about.php">Info.<i class="bi bi-caret-down-fill"></i></a>        
+                              <a href="/website/src/menu.php">Menu.<i class="bi bi-caret-down-fill"></i></a>       
+                              <a href="/website/src/gallery.php">Gallery.</a>
                         </div>
                         <div class="nav-logo">
                               <a href="/website/src/home.php">
@@ -14,8 +21,8 @@
                               </a>
                         </div>
                         <div class="nav-right">
-                              <a href="/website/src/cart.php">Cart</a>
-                              <a href="/website/src/auth.php">Sign-Up</a>
+                              <a href="/website/src/cart.php">Cart.</a>
+                              <a href="/website/src/auth.php">Sign-Up.</a>
                         </div>
                   </div>
             </nav>
