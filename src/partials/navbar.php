@@ -2,9 +2,9 @@
 <header>
       <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                  <div class="swiper-slide">AYAW NETO GUMITNA KAINIS</div>
-                  <div class="swiper-slide">PISO COFFEE</div>
-                  <div class="swiper-slide">LF CLIENT</div>
+                  <div class="swiper-slide">HELLO CHAT</div>
+                  <div class="swiper-slide">DIRTY MACHA ONLY $10</div>
+                  <div class="swiper-slide">10% DISCOUNT ON FIRST ORDER</div>
             </div>
       </div>
             <nav class="navbar">
@@ -17,7 +17,7 @@
                         </div>
                         <div class="nav-logo">
                               <a href="/website/src/home.php">
-                                    <h1 class="logo-creative">PrintfCafe.</h1>
+                                    <h1 class="logo-creative">Kusina ni .</h1>
                               </a>
                         </div>
                         <div class="nav-right">
