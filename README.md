@@ -15,7 +15,8 @@ coffee-shop/
 │
 │   ├── register.php      # User registration
 │   ├── login.php         # User login
-│   ├── dashboard.php     # User dashboard (after login)
+│   ├── dashboard.php 
++    # User dashboard (after login)
 │   ├── logout.php        # End session
 │
 │   ├── cart.php          # Shopping cart page
@@ -34,4 +35,4 @@ coffee-shop/
 │   ├── css/
 │   ├── js/
 │   └── images/
-└── .htaccess             # (optional) clean URLs
+└── .htaccess             # (optional) clean URLsww

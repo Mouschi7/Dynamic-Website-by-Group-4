@@ -16,13 +16,29 @@
       <main>
             
             <section class="section hero">
-                  <!--<video autoplay muted loop playsinline class="hero-bg">
-                        <source src="/website/videos/bgedit.mp4">
+                  <video autoplay muted loop playsinline class="hero-video" aria-hidden="true">
+                        <source src="assets/videos/bgedit.mp4">
                         Your browser does not support the video tag.
                   </video>
-                  -->
+
+                  <div class="content">
+                        <h1>Savor the classic filipino dishes!</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente impedit in dolore officia veritatis cumque iusto. </p>
+                        <a class="cta-button" href="/website/src/menu.php">View Menu</a>
+                  </div>
             </section>
+            
       </main>
       
 </body>
 </html>
+
+
+
+
+
+<!--<video autoplay muted loop playsinline class="hero-bg">
+                        <source src="/website/videos/bgedit.mp4">
+                        Your browser does not support the video tag.
+                  </video>
+                  -->
