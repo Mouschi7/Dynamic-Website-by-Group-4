@@ -6,7 +6,8 @@
       <head>
             <meta charset="UTF-8" />
             <title>Kusina ni Kapetan</title>
-            <link rel="stylesheet" href="/website/src/landingpage.css" />
+            <link rel="stylesheet" href="/website/src/landing.css" />
+            <link rel="stylesheet" href="/website/src/index.css" />
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
       </head>
       <body class="landing-page">

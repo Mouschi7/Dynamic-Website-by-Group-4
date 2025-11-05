@@ -45,7 +45,7 @@
                                           the senses.
                                           </p>
                                           <button class="why-button">
-                                          Our Story <i class="bi bi-arrow-right"></i>
+                                          Our Story
                                           </button>
                                     </div>
                                     <div class="why-image">
@@ -54,6 +54,265 @@
                               </div>
                         </div>
                   </section>
+
+                  <!-- ================= HERO TAPSILOG SECTION ================= -->
+                  <section class="tapsilog-hero">
+                        <div class="tapsilog-content">
+                              <div class="tapsilog-text">
+                                    <h2 class="brand">Kusina ni Kapetan</h2>
+                                    <h1 class="meal-name">Tapsilog</h1>
+                                    <p class="rate-text">
+                                          please<br /><span>rate us</span><br />⭐⭐⭐⭐⭐
+                                    </p>
+                                    <p class="meal-desc">
+                                          “Sarap-sarap ng umaga with our signature Tapsilog —
+                                          tender beef tapa, garlic rice, and a perfectly fried
+                                          egg.”
+                                    </p>
+                                    <div class="tapsilog-buttons">
+                                          <button class="btn orange">Order now</button>
+                                          <button class="btn orange-outline">Order now</button>
+                                    </div>
+                              </div>
+                        </div>
+                  </section>
+
+                                    <!-- ================= OUR SPECIALS SECTION ================= -->
+                  <section class="specials">
+                        <h2 class="section-title">Our Specials</h2>
+
+                        <div class="specials-slider-wrapper">
+                              <button
+                                    id="prevSpecialBtn"
+                                    class="arrow-btn left"
+                                    aria-label="Previous special"
+                              >
+                                    <i class="bi bi-chevron-left"></i>
+                              </button>
+
+                              <div class="specials-slider">
+                                    <!-- Slide 1 -->
+                                    <div class="special-slide">
+                                          <div class="special-card">
+                                                <img
+                                                      src="./assets/images/hotdog.jpeg"
+                                                      alt="Hotsilog"
+                                                />
+                                                <div class="special-info">
+                                                      <h3>Hotsilog</h3>
+                                                      <p class="special-desc">
+                                                            Savory hotdog served with garlic rice
+                                                            and fried egg.
+                                                      </p>
+                                                      <div class="special-meta">
+                                                            <span class="price">₱120</span>
+                                                            <span class="stars"
+                                                                  >⭐⭐⭐⭐⭐ 5.0</span
+                                                            >
+                                                      </div>
+                                                      <button class="btn order-btn">
+                                                            Order now
+                                                      </button>
+                                                </div>
+                                          </div>
+                                    </div>
+
+                                    <!-- Slide 2 -->
+                                    <div class="special-slide">
+                                          <div class="special-card">
+                                                <img
+                                                      src="./assets/images/imbutido.jpeg"
+                                                      alt="Sisigsilog"
+                                                />
+                                                <div class="special-info">
+                                                      <h3>Sisigsilog</h3>
+                                                      <p class="special-desc">
+                                                            Classic pork sisig served with rice
+                                                            and egg.
+                                                      </p>
+                                                      <div class="special-meta">
+                                                            <span class="price">₱120</span>
+                                                            <span class="stars"
+                                                                  >⭐⭐⭐⭐⭐ 5.0</span
+                                                            >
+                                                      </div>
+                                                      <button class="btn order-btn">
+                                                            Order now
+                                                      </button>
+                                                </div>
+                                          </div>
+                                    </div>
+
+                                    <!-- Slide 3 -->
+                                    <div class="special-slide">
+                                          <div class="special-card">
+                                                <img
+                                                      src="./assets/images/longanisa.jpeg"
+                                                      alt="Tocilog"
+                                                />
+                                                <div class="special-info">
+                                                      <h3>Tocilog</h3>
+                                                      <p class="special-desc">
+                                                            Sweet tocino paired with garlic rice
+                                                            and egg.
+                                                      </p>
+                                                      <div class="special-meta">
+                                                            <span class="price">₱120</span>
+                                                            <span class="stars"
+                                                                  >⭐⭐⭐⭐⭐ 5.0</span
+                                                            >
+                                                      </div>
+                                                      <button class="btn order-btn">
+                                                            Order now
+                                                      </button>
+                                                </div>
+                                          </div>
+                                    </div>
+
+                                    <!-- Slide 4 -->
+                                    <div class="special-slide">
+                                          <div class="special-card">
+                                                <img
+                                                      src="./assets/images/tocino.jpeg"
+                                                      alt="Tapsilog"
+                                                />
+                                                <div class="special-info">
+                                                      <h3>Tapsilog</h3>
+                                                      <p class="special-desc">
+                                                            Beef tapa, garlic rice, and fried egg
+                                                            — Filipino classic.
+                                                      </p>
+                                                      <div class="special-meta">
+                                                            <span class="price">₱120</span>
+                                                            <span class="stars"
+                                                                  >⭐⭐⭐⭐⭐ 5.0</span
+                                                            >
+                                                      </div>
+                                                      <button class="btn order-btn">
+                                                            Order now
+                                                      </button>
+                                                </div>
+                                          </div>
+                                    </div>
+                              </div>
+
+                              <button
+                                    id="nextSpecialBtn"
+                                    class="arrow-btn right"
+                                    aria-label="Next special"
+                              >
+                                    <i class="bi bi-chevron-right"></i>
+                              </button>
+                        </div>
+
+                        <div class="slide-indicators specials-indicators">
+                              <button class="indicator active"></button>
+                              <button class="indicator"></button>
+                              <button class="indicator"></button>
+                              <button class="indicator"></button>
+                        </div>
+                  </section>
+
+                              <!-- ================= TESTIMONIALS SECTION ================= -->
+                  <section class="testimonials">
+                        <h2 class="section-title">What Our Customers Say</h2>
+
+                        <div class="testimonials-slider">
+                              <div class="testimonial">
+                                    <img
+                                          src="./assets/images/customer1.jpg"
+                                          alt="Customer 1"
+                                          class="customer-img"
+                                    />
+                                    <p>"Best silog place ever! Feels like home every bite!"</p>
+                                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                                    <h4>- Maria S.</h4>
+                              </div>
+
+                              <div class="testimonial">
+                                    <img
+                                          src="./assets/images/customer2.jpg"
+                                          alt="Customer 2"
+                                          class="customer-img"
+                                    />
+                                    <p>
+                                          "Tapsilog is juicy and flavorful. Perfect for
+                                          breakfast!"
+                                    </p>
+                                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                                    <h4>- Kevin L.</h4>
+                              </div>
+
+                              <div class="testimonial">
+                                    <img
+                                          src="./assets/images/customer3.jpg"
+                                          alt="Customer 3"
+                                          class="customer-img"
+                                    />
+                                    <p>"Their Sisigsilog is to die for! Highly recommended."</p>
+                                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                                    <h4>- Carla R.</h4>
+                              </div>
+
+                              <div class="testimonial">
+                                    <img
+                                          src="./assets/images/customer4.jpg"
+                                          alt="Customer 4"
+                                          class="customer-img"
+                                    />
+                                    <p>"I love the presentation and taste. Worth every peso!"</p>
+                                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                                    <h4>- John D.</h4>
+                              </div>
+                        </div>
+                  </section>
+
+<?php include("../src/partials/footer.php"); ?>
+
+                  <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                              // OUR SPECIALS SLIDER
+                              const slides = document.querySelectorAll(".special-slide");
+                              const indicators = document.querySelectorAll(
+                                    ".specials-indicators .indicator"
+                              );
+                              const nextBtn = document.getElementById("nextSpecialBtn");
+                              const prevBtn = document.getElementById("prevSpecialBtn");
+                              const slider = document.querySelector(".specials-slider");
+                              let current = 0;
+
+                              function showSlide(index) {
+                                    if (index < 0) index = slides.length - 1;
+                                    if (index >= slides.length) index = 0;
+                                    slider.style.transform = `translateX(-${index * 100}%)`;
+                                    indicators[current].classList.remove("active");
+                                    indicators[index].classList.add("active");
+                                    current = index;
+                              }
+
+                              function nextSlide() {
+                                    showSlide(current + 1);
+                              }
+                              function prevSlide() {
+                                    showSlide(current - 1);
+                              }
+
+                              nextBtn.addEventListener("click", nextSlide);
+                              prevBtn.addEventListener("click", prevSlide);
+                              indicators.forEach((btn, i) =>
+                                    btn.addEventListener("click", () => showSlide(i))
+                              );
+
+                              // Auto-slide every 5 seconds
+                              setInterval(nextSlide, 5000);
+
+                              // Keyboard controls
+                              document.addEventListener("keydown", (e) => {
+                                    if (e.key === "ArrowLeft") prevSlide();
+                                    if (e.key === "ArrowRight") nextSlide();
+                              });
+                        });
+                  </script>
             </main>
       </body>
 </html>

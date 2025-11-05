@@ -539,3 +539,298 @@ a {
             max-width: 100%;
       }
 }
+
+/* ================= TAPSILOG HERO ================= */
+.tapsilog-hero {
+      background: url("./assets/images/pork.jpeg") center/cover no-repeat;
+      color: #fff;
+      padding: 6rem 2rem;
+      text-align: left;
+      position: relative;
+}
+.tapsilog-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+}
+.tapsilog-content {
+      position: relative;
+      max-width: 600px;
+      z-index: 2;
+}
+.tapsilog-text .brand {
+      font-family: "Tiempos", serif;
+      font-size: 2rem;
+      color: #ffe6a7;
+}
+.tapsilog-text .meal-name {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #fff;
+}
+.rate-text {
+      font-size: 1rem;
+      color: #fff;
+      margin: 1rem 0;
+}
+.meal-desc {
+      color: #e8e8e8;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+}
+.tapsilog-buttons {
+      display: flex;
+      gap: 1rem;
+}
+.btn.orange {
+      background: #ef9458;
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+}
+.btn.orange-outline {
+      border: 2px solid #ef9458;
+      background: transparent;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+}
+.btn.orange:hover,
+.btn.orange-outline:hover {
+      background: #cb0000;
+}
+/* ================= OUR SPECIALS SLIDER ================= */
+.specials {
+      background: #ff9559;
+      color: #fff;
+      padding: 5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+}
+
+.specials-slider-wrapper {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      overflow: hidden;
+}
+
+.specials-slider {
+      display: flex;
+      transition: transform 0.6s ease;
+}
+
+.special-slide {
+      min-width: 100%;
+      display: flex;
+      justify-content: center;
+}
+
+.special-card {
+      display: flex;
+      background: #0f8b8d;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      width: 90%;
+      max-width: 850px;
+      margin: 0 auto;
+      align-items: stretch;
+}
+
+.special-card img {
+      width: 50%;
+      object-fit: cover;
+      height: 100%;
+}
+
+.special-info {
+      flex: 1;
+      padding: 2rem;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+}
+
+.special-info h3 {
+      font-size: 1.8rem;
+      color: #fff;
+      font-family: "Tiempos", serif;
+}
+
+.special-desc {
+      font-size: 1rem;
+      color: #f5f5f5;
+      line-height: 1.6;
+}
+
+.special-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-weight: bold;
+      font-size: 1rem;
+}
+
+.price {
+      color: #ffe6a7;
+}
+
+.stars {
+      color: #fff;
+}
+
+.btn.order-btn {
+      background: #ef9458;
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      align-self: flex-start;
+}
+
+.btn.order-btn:hover {
+      background: #cb0000;
+      transform: translateY(-2px);
+}
+
+.arrow-btn {
+      background: rgba(0, 0, 0, 0.4);
+      border: none;
+      color: #fff;
+      padding: 12px;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      z-index: 5;
+}
+.arrow-btn.left {
+      left: 10px;
+}
+.arrow-btn.right {
+      right: 10px;
+}
+
+.specials-indicators {
+      display: flex;
+      justify-content: center;
+      margin-top: 1.5rem;
+      gap: 10px;
+}
+.specials-indicators .indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 2px solid white;
+      background: transparent;
+      cursor: pointer;
+}
+.specials-indicators .indicator.active {
+      background: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+      .special-card {
+            flex-direction: column;
+      }
+      .special-card img {
+            width: 100%;
+            height: 200px;
+      }
+      .special-info {
+            text-align: center;
+            align-items: center;
+      }
+      .special-info h3 {
+            font-size: 1.5rem;
+      }
+}
+
+/* ================= TESTIMONIALS WITH IMAGES ================= */
+.testimonials {
+      background: #fdf9e5;
+      padding: 5rem 2rem;
+      text-align: center;
+}
+.testimonials-slider {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+}
+.testimonial {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      max-width: 250px;
+      text-align: center;
+}
+.customer-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+      background: #800000;
+      color: #fff;
+      padding: 3rem 2rem;
+      font-size: 0.95rem;
+}
+.footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+}
+.footer-brand h2 {
+      font-family: "Tiempos", serif;
+      font-size: 1.8rem;
+}
+.footer-brand p {
+      color: #ddd;
+      margin-top: 0.5rem;
+}
+.footer-column h3 {
+      color: #ffe6a7;
+      margin-bottom: 1rem;
+}
+.footer-column ul {
+      list-style: none;
+      padding: 0;
+}
+.footer-column a {
+      color: #ddd;
+      text-decoration: none;
+}
+.footer-column a:hover {
+      color: #fff;
+}
+.footer-socials {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+}
+.footer-bottom {
+      text-align: center;
+      border-top: 1px solid #999;
+      padding-top: 1rem;
+      color: #ccc;
+      font-size: 0.8rem;
+}
