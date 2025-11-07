@@ -828,190 +828,138 @@ a {
       margin-bottom: 1rem;
 }
 
-/* ===================== LOGIN PAGE ===================== */
+/* ===================== LOGIN / REGISTER PAGE ===================== */
+
 .login-page {
       min-height: 100vh;
-      font-family: var(--font-main, "Balto"), sans-serif;
-      background: var(--rice-white);
-      color: var(--gray-color);
-      overflow-x: hidden;
-}
-
-/* ----------- CONTAINER ----------- */
-.login-container {
+      background: url("../assets/images/food.jpg") center/cover no-repeat;
       display: flex;
-      flex-wrap: wrap;
-      min-height: 100vh;
-}
-
-/* ----------- IMAGE SECTION ----------- */
-.image-section {
-      flex: 1;
+      justify-content: center;
+      align-items: center;
+      padding-top: calc(var(--navbar-height) + var(--topbar-height));
       position: relative;
-      overflow: hidden;
 }
 
-.image-section img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease-out;
-}
-
-.image-section .overlay {
+.login-page::before {
+      content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.25);
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(5px);
+      z-index: 0;
 }
 
-.image-text {
-      position: absolute;
-      bottom: 3rem;
-      left: 3rem;
-      color: var(--creme-color);
-      max-width: 350px;
-      z-index: 2;
+.auth-container {
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: var(--border-radius-m);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      padding: 3rem 2.5rem;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      animation: fadeSlideIn 0.8s ease forwards;
 }
 
-.image-text h3 {
-      font-family: var(--font-heading, "Tiempos"), serif;
+/* FORM STYLES */
+.auth-container h2 {
+      font-family: "Tiempos", serif;
+      color: var(--green);
       font-size: 1.8rem;
-      color: var(--rice-white);
+      margin-bottom: 1.5rem;
 }
 
-.image-text p {
+.form-group {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      margin-bottom: 1.2rem;
+}
+
+.form-group label {
+      font-weight: 600;
+      color: var(--gray-color);
+      margin-bottom: 0.4rem;
       font-size: 0.95rem;
-      opacity: 0.9;
+}
+
+.form-group input {
+      padding: 0.8rem 1rem;
+      border-radius: var(--border-radius-s);
+      border: 1.5px solid #ddd;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 2px rgba(239, 148, 88, 0.3);
+      outline: none;
+}
+
+.btn {
+      width: 100%;
+      background: var(--orange);
+      border: none;
+      border-radius: 30px;
+      padding: 0.9rem;
+      color: var(--rice-white);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
       margin-top: 0.3rem;
 }
 
-/* ----------- FORM SECTION ----------- */
-.form-section {
-      flex: 1;
-      background: var(--green);
-      color: var(--rice-white);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 3rem 2rem;
-      transition: all 0.5s ease;
-      overflow: hidden;
-}
-
-.form-toggle {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-}
-
-.form-toggle button {
-      background: none;
-      border: 2px solid var(--rice-white);
-      border-radius: 30px;
-      color: var(--rice-white);
-      padding: 0.6rem 1.5rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-weight: 600;
-}
-
-.form-toggle button.active,
-.form-toggle button:hover {
-      background: var(--orange);
-      border-color: var(--orange);
-      transform: translateY(-2px);
-}
-
-    /* ====== CONTAINER ====== */
-    .auth-container {
-      margin-top: 90px;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: var(--radius);
-      width: 400px;
-      padding: 2.5rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      position: relative;
-      transition: transform 0.4s ease, opacity 0.4s ease;
-      backdrop-filter: blur(12px);
-    }
-
-    h2 {
-      font-family: "Tiempos", serif;
-      color: var(--green);
-      margin-bottom: 1rem;
-    }
-
-    .form-group {
-      margin-bottom: 1rem;
-      text-align: left;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 0.9rem;
-      color: var(--dark);
-      margin-bottom: 5px;
-    }
-
-    .form-group input {
-      width: 100%;
-      padding: 0.7rem;
-      border-radius: var(--radius);
-      border: 1px solid #ccc;
-      outline: none;
-      transition: border 0.3s ease;
-    }
-
-    .form-group input:focus {
-      border-color: var(--green);
-    }
-
-    .btn {
-      width: 100%;
-      padding: 0.8rem;
-      border: none;
-      border-radius: var(--radius);
-      background: var(--orange);
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .btn:hover {
+.btn:hover {
       background: var(--red);
       transform: translateY(-2px);
-    }
+}
 
-    .toggle-text {
+.toggle-text {
       margin-top: 1rem;
+      color: var(--gray-color);
       font-size: 0.9rem;
-      color: var(--dark);
-    }
+}
 
-    .toggle-text span {
+.toggle-text span {
       color: var(--orange);
-      cursor: pointer;
       font-weight: 600;
+      cursor: pointer;
       transition: color 0.3s ease;
-    }
+}
 
-    .toggle-text span:hover {
+.toggle-text span:hover {
       color: var(--red);
-    }
+}
 
-    /* ====== ANIMATIONS ====== */
-    .hidden {
-      opacity: 0;
-      transform: translateY(20px);
-      pointer-events: none;
-      position: absolute;
-      left: 0;
-      right: 0;
-    }
+/* Hidden state for toggling */
+.hidden {
+      display: none;
+}
+
+/* ANIMATIONS */
+@keyframes fadeSlideIn {
+      from {
+            opacity: 0;
+            transform: translateY(20px);
+      }
+      to {
+            opacity: 1;
+            transform: translateY(0);
+      }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+      .auth-container {
+            margin: 0 1rem;
+            padding: 2rem 1.5rem;
+      }
+      .login-page {
+            background-position: center;
+      }
+}
 
 /* ===================== HERO SECTION ===================== */
 .about-hero {
