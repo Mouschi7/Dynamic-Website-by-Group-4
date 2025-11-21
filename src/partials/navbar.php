@@ -14,7 +14,7 @@
                 </div>
 
                 <div class="dropdown">
-                    <a href="#" class="dropdown-toggle">Menu. <i class="bi bi-caret-down-fill"></i></a>
+                    <a href="menu.php" class="dropdown-toggle">Menu. <i class="bi bi-caret-down-fill"></i></a>
                     <div class="dropdown-menu">
                         <a href="foods.php">Foods</a>
                         <a href="drinks.php">Drinks</a>
