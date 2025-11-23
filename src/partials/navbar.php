@@ -16,8 +16,12 @@
                 <div class="dropdown">
                     <a href="menu.php" class="dropdown-toggle">Menu. <i class="bi bi-caret-down-fill"></i></a>
                     <div class="dropdown-menu">
-                        <a href="foods.php">Foods</a>
-                        <a href="drinks.php">Drinks</a>
+                        <a href="menu.php?cat=rice-meals">Rice Meals</a>
+                        <a href="menu.php?cat=drinks">Drinks</a>
+                        <a href="menu.php?cat=fried-rice">Fried Rice</a>
+                        <a href="menu.php?cat=tofu-square">Tofu Square</a>
+                        <a href="menu.php?cat=combo-meals">Combo Meals</a>
+                        <a href="menu.php?cat=extras">Extras</a>
                     </div>
                 </div>
             </div>

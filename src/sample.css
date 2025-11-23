@@ -145,7 +145,7 @@ a {
       top: var(--topbar-height);
       left: 0;
       width: 100%;
-      height: var(--navbar-height);
+      height: var(--navbar-height); 
       display: flex;
       align-items: center;
       z-index: 900;
@@ -275,4 +275,150 @@ a {
 }
 .dropdown:hover .dropdown-menu {
       display: block;
+}
+
+
+/* ============================
+   MENU PAGE LAYOUT
+=============================== */
+
+/* HERO SECTION */
+.menu-hero {
+      width: 100%;
+      padding-top: calc(var(--topbar-height) + var(--navbar-height) + 2rem);
+      padding-bottom: 3rem;
+      text-align: center;
+      background: linear-gradient(
+                  rgba(70, 148, 107, 0.1),
+                  rgba(255, 248, 240, 0.7)
+            ),
+            url("../src/assets/images/hero-bg.jpg");
+      background-size: cover;
+      background-position: center;
+}
+
+.menu-hero h1 {
+      font-family: "Tiempos", serif;
+      font-size: var(--font-size-3xl);
+      color: var(--gray-color);
+      margin-bottom: 0.5rem;
+}
+
+.menu-hero p {
+      font-size: var(--font-size-n);
+      opacity: 0.9;
+}
+
+/* CATEGORY BUTTON BAR */
+.menu-categories {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem auto;
+      padding: 1rem;
+      flex-wrap: wrap;
+      position: sticky;
+      top: calc(var(--navbar-height) + var(--topbar-height));
+      background: var(--rice-white);
+      z-index: 800;
+      border-bottom: 1px solid #eee;
+}
+
+.menu-categories button {
+      padding: 0.6rem 1.4rem;
+      font-size: var(--font-size-s);
+      border-radius: 25px;
+      border: 2px solid var(--green);
+      background: transparent;
+      color: var(--green);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+}
+
+.menu-categories button.active,
+.menu-categories button:hover {
+      background: var(--green);
+      color: var(--rice-white);
+}
+
+/* MENU GRID */
+.menu-grid {
+      max-width: var(--site-max-width);
+      margin: 0 auto 5rem auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 2rem;
+      justify-items: center;
+}
+
+/* ===================== MENU CARD ===================== */
+.menu-card {
+      background: var(--creme-color);
+      border-radius: var(--border-radius-m);
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards;
+}
+
+.menu-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* ===================== IMAGE ===================== */
+.menu-img {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+}
+
+.menu-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.4s ease;
+}
+
+.menu-card:hover .menu-img img {
+      transform: scale(1.05);
+}
+
+/* ===================== TEXT ===================== */
+.menu-info {
+      padding: 1.2rem;
+}
+
+.menu-info h3 {
+      font-size: var(--font-size-m);
+      color: var(--gray-color);
+      margin-bottom: 0.2rem;
+}
+
+.menu-info p {
+      font-size: var(--font-size-s);
+      opacity: 0.8;
+      margin-bottom: 0.6rem;
+}
+
+.price {
+      font-weight: 600;
+      color: var(--orange);
+      font-size: var(--font-size-n);
+}
+
+/* ===================== ANIMATION ===================== */
+@keyframes fadeUp {
+      from {
+            transform: translateY(20px);
+            opacity: 0;
+      }
+      to {
+            transform: translateY(0);
+            opacity: 1;
+      }
 }
