@@ -5,7 +5,7 @@
 <html lang="en">
       <head>
             <meta charset="UTF-8">
-            <title>Kusina ni Kape'Tan | Home</title>
+            <title>Home | Kusina ni Kape'Tan</title>
             <link rel="stylesheet" href="index.css">
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
       </head>
@@ -55,10 +55,10 @@
                         </div>
                   </section>
 
-                  <!-- ================= HERO TAPSILOG SECTION ================= -->
-                  <section class="tapsilog-hero">
-                        <div class="tapsilog-content">
-                              <div class="tapsilog-text">
+                  <!-- MINI HERO SECTION -->
+                  <section class="mini-hero">
+                        <div class="mini-content">
+                              <div class="mini-text">
                                     <h2 class="brand">Kusina ni Kapetan</h2>
                                     <h1 class="meal-name">Tapsilog</h1>
                                     <p class="rate-text">
@@ -69,7 +69,7 @@
                                           tender beef tapa, garlic rice, and a perfectly fried
                                           egg.”
                                     </p>
-                                    <div class="tapsilog-buttons">
+                                    <div class="mini-buttons">
                                           <button class="btn orange">Order now</button>
                                           <button class="btn orange-outline">Order now</button>
                                     </div>
@@ -77,7 +77,7 @@
                         </div>
                   </section>
 
-                                    <!-- ================= OUR SPECIALS SECTION ================= -->
+                  <!-- SPECIALS SECTION -->
                   <section class="specials">
                         <h2 class="section-title">Our Specials</h2>
 
@@ -91,7 +91,7 @@
                               </button>
 
                               <div class="specials-slider">
-                                    <!-- Slide 1 -->
+                                    
                                     <div class="special-slide">
                                           <div class="special-card">
                                                 <img
@@ -117,7 +117,7 @@
                                           </div>
                                     </div>
 
-                                    <!-- Slide 2 -->
+                                    
                                     <div class="special-slide">
                                           <div class="special-card">
                                                 <img
@@ -143,7 +143,7 @@
                                           </div>
                                     </div>
 
-                                    <!-- Slide 3 -->
+                                    
                                     <div class="special-slide">
                                           <div class="special-card">
                                                 <img
@@ -169,7 +169,7 @@
                                           </div>
                                     </div>
 
-                                    <!-- Slide 4 -->
+                                    
                                     <div class="special-slide">
                                           <div class="special-card">
                                                 <img
@@ -213,7 +213,7 @@
                         </div>
                   </section>
 
-                              <!-- ================= TESTIMONIALS SECTION ================= -->
+                  <!-- TESTIMONIAL SECTION -->
                   <section class="testimonials">
                         <h2 class="section-title">What Our Customers Say</h2>
 
@@ -224,7 +224,7 @@
                                           alt="Customer 1"
                                           class="customer-img"
                                     />
-                                    <p>"Best silog place ever! Feels like home every bite!"</p>
+                                    <p>"Highly recommended."</p>
                                     <div class="stars">⭐⭐⭐⭐⭐</div>
                                     <h4>- Maria S.</h4>
                               </div>
@@ -236,8 +236,7 @@
                                           class="customer-img"
                                     />
                                     <p>
-                                          "Tapsilog is juicy and flavorful. Perfect for
-                                          breakfast!"
+                                          "Highly recommended."
                                     </p>
                                     <div class="stars">⭐⭐⭐⭐⭐</div>
                                     <h4>- Kevin L.</h4>
@@ -249,7 +248,7 @@
                                           alt="Customer 3"
                                           class="customer-img"
                                     />
-                                    <p>"Their Sisigsilog is to die for! Highly recommended."</p>
+                                    <p>"Highly recommended."</p>
                                     <div class="stars">⭐⭐⭐⭐⭐</div>
                                     <h4>- Carla R.</h4>
                               </div>
@@ -260,59 +259,15 @@
                                           alt="Customer 4"
                                           class="customer-img"
                                     />
-                                    <p>"I love the presentation and taste. Worth every peso!"</p>
+                                    <p>"Highly recommended."</p>
                                     <div class="stars">⭐⭐⭐⭐⭐</div>
                                     <h4>- John D.</h4>
                               </div>
                         </div>
                   </section>
 
-<?php include("../src/partials/footer.php"); ?>
-
-                  <script>
-                        document.addEventListener("DOMContentLoaded", function () {
-                              // OUR SPECIALS SLIDER
-                              const slides = document.querySelectorAll(".special-slide");
-                              const indicators = document.querySelectorAll(
-                                    ".specials-indicators .indicator"
-                              );
-                              const nextBtn = document.getElementById("nextSpecialBtn");
-                              const prevBtn = document.getElementById("prevSpecialBtn");
-                              const slider = document.querySelector(".specials-slider");
-                              let current = 0;
-
-                              function showSlide(index) {
-                                    if (index < 0) index = slides.length - 1;
-                                    if (index >= slides.length) index = 0;
-                                    slider.style.transform = `translateX(-${index * 100}%)`;
-                                    indicators[current].classList.remove("active");
-                                    indicators[index].classList.add("active");
-                                    current = index;
-                              }
-
-                              function nextSlide() {
-                                    showSlide(current + 1);
-                              }
-                              function prevSlide() {
-                                    showSlide(current - 1);
-                              }
-
-                              nextBtn.addEventListener("click", nextSlide);
-                              prevBtn.addEventListener("click", prevSlide);
-                              indicators.forEach((btn, i) =>
-                                    btn.addEventListener("click", () => showSlide(i))
-                              );
-
-                              // Auto-slide every 5 seconds
-                              setInterval(nextSlide, 5000);
-
-                              // Keyboard controls
-                              document.addEventListener("keydown", (e) => {
-                                    if (e.key === "ArrowLeft") prevSlide();
-                                    if (e.key === "ArrowRight") nextSlide();
-                              });
-                        });
-                  </script>
+                  <?php include("../src/partials/footer.php"); ?>
+                  <script src="script.js"></script>
             </main>
       </body>
 </html>

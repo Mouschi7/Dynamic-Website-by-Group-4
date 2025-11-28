@@ -1,6 +1,4 @@
-/*========================================
-  Fonts & Root Variables
-========================================*/
+/* FONTS/ROOT STYLES */
 @font-face {
       font-family: "Tiempos";
       src: url("./assets/fonts/Tiempos/Tiempos-Text-Regular.woff2")
@@ -59,9 +57,7 @@
       --navbar-height: 90px;
 }
 
-/*========================================
-  Global / Base
-========================================*/
+/* GLOBAL STYLES */
 * {
       margin: 0;
       padding: 0;
@@ -87,9 +83,7 @@ a {
       background: var(--orange);
 }
 
-/*========================================
-  Announcement Bar Styles
-========================================*/
+/* ANNOUNCEMENT BAR STYLES */
 .announcement-bar {
       position: fixed;
       inset: 0 0 auto 0;
@@ -137,9 +131,7 @@ a {
       opacity: 1;
 }
 
-/*========================================
-  Navbar Styles
-========================================*/
+/* NAVBAR STYLES */
 .navbar {
       position: fixed;
       top: var(--topbar-height);
@@ -179,7 +171,6 @@ a {
       padding: 0 6rem;
 }
 
-/* logo center */
 .nav-logo {
       position: absolute;
       left: 50%;
@@ -201,7 +192,6 @@ a {
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* nav groups */
 .nav-left,
 .nav-right {
       display: flex;
@@ -238,9 +228,7 @@ a {
       font-size: 0.9em;
 }
 
-/*========================================
-  Dropdown Styles
-========================================*/
+/* DROPDOWN STYLES */
 .dropdown {
       position: relative;
 }
@@ -277,9 +265,7 @@ a {
       display: block;
 }
 
-/*========================================
-  Hero Section Styles
-========================================*/
+/* HERO SECTION STYLES */
 .hero {
       position: relative;
       width: 100%;
@@ -292,7 +278,6 @@ a {
       background-color: var(--black-color);
 }
 
-/* Background video */
 .hero-video {
       position: absolute;
       inset: 0;
@@ -302,7 +287,6 @@ a {
       z-index: 1;
 }
 
-/* overlay */
 .hero-overlay {
       position: absolute;
       inset: 0;
@@ -314,7 +298,6 @@ a {
       z-index: 2;
 }
 
-/* content */
 .hero-inner {
       position: relative;
       z-index: 3;
@@ -448,10 +431,8 @@ a {
       border: 3px solid var(--rice-white);
 }
 
-/*========================================
-  Tapsilog Hero Styles
-========================================*/
-.tapsilog-hero {
+/* MINI HERO STYLES */
+.mini-hero {
       position: relative;
       background: url("./assets/images/pork.jpeg") center/cover no-repeat;
       color: #fff;
@@ -459,23 +440,23 @@ a {
       text-align: left;
       overflow: hidden;
 }
-.tapsilog-hero::after {
+.mini-hero::after {
       content: "";
       position: absolute;
       inset: 0;
       background: rgba(0, 0, 0, 0.4);
 }
-.tapsilog-content {
+.mini-content {
       position: relative;
       z-index: 2;
       max-width: 600px;
 }
-.tapsilog-text .brand {
+.mini-text .brand {
       font-family: "Tiempos", serif;
       font-size: 2rem;
       color: #ffe6a7;
 }
-.tapsilog-text .meal-name {
+.mini-text .meal-name {
       font-size: 3rem;
       font-weight: 700;
       color: #fff;
@@ -490,7 +471,7 @@ a {
       font-size: 1rem;
       margin-bottom: 1.5rem;
 }
-.tapsilog-buttons {
+.mini-buttons {
       display: flex;
       gap: 1rem;
 }
@@ -515,9 +496,7 @@ a {
       background: var(--vivid-red);
 }
 
-/*========================================
-  Specials Slider Styles
-========================================*/
+/* SPECIALS STYLES */
 .specials {
       background: #ff9559;
       color: #fff;
@@ -639,9 +618,7 @@ a {
       background: #fff;
 }
 
-/*========================================
-  Testimonials
-========================================*/
+/* TESTIMONIAL STYLES */
 .testimonials {
       background: var(--creme-color);
       padding: 5rem 2rem;
@@ -669,9 +646,7 @@ a {
       margin-bottom: 1rem;
 }
 
-/*========================================
-  Login / Register
-========================================*/
+/* LOGIN/REGISTER STYLES */
 .login-page {
       min-height: 100vh;
       display: flex;
@@ -767,9 +742,7 @@ a {
       display: none;
 }
 
-/*========================================
-  About Hero
-========================================*/
+/* ABOUT HERO */
 .about-hero {
       position: relative;
       width: 100%;
@@ -806,9 +779,7 @@ a {
       color: #fff;
 }
 
-/*========================================
-  About / Story Sections
-========================================*/
+/* ABOUT SECTION STYLES */
 .about-section {
       display: flex;
       align-items: center;
@@ -852,9 +823,7 @@ a {
       font-size: var(--font-size-n);
 }
 
-/*========================================
-  FAQ Two-Column Section
-========================================*/
+/* FAQs STYLES */
 .faq-section {
       padding: 5rem 10%;
       background: linear-gradient(to right, #fdf9e5, #fff8f0);
@@ -920,9 +889,7 @@ a {
       transform: rotate(90deg);
 }
 
-/*========================================
-  Animations / Keyframes
-========================================*/
+/* ANIMATIONS/KEYFRAMES */
 @keyframes fadeSlideIn {
       from {
             opacity: 0;
@@ -944,11 +911,8 @@ a {
       }
 }
 
-/* ============================
-   MENU PAGE LAYOUT
-=============================== */
+/* MENU STYLES */
 
-/* HERO SECTION */
 .menu-hero {
       width: 100%;
       padding-top: calc(var(--topbar-height) + var(--navbar-height) + 2rem);
@@ -990,7 +954,6 @@ a {
       opacity: 0;
       animation: fadeUp 0.6s ease forwards;
 }
-/* CATEGORY BUTTON BAR */
 
 .menu-categories {
       display: flex;
@@ -1026,11 +989,10 @@ a {
 .menu-categories button:hover {
       background: var(--green);
       color: var(--rice-white);
-      box-shadow: 0 6px 16px rgba(70, 148, 107, 0.20);
+      box-shadow: 0 6px 16px rgba(70, 148, 107, 0.2);
       transform: translateY(-2px);
 }
 
-/* MENU GRID */
 .menu-grid {
       max-width: var(--site-max-width);
       margin: 0 auto 5rem auto;
@@ -1041,7 +1003,6 @@ a {
       justify-items: center;
 }
 
-/* ===================== MENU CARD ===================== */
 .menu-card {
       background: var(--creme-color);
       border-radius: var(--border-radius-m);
@@ -1055,16 +1016,18 @@ a {
       animation-delay: 0.1s;
 }
 
-.menu-card:nth-child(2) { animation-delay: 0.2s; }
-.menu-card:nth-child(3) { animation-delay: 0.3s; }
+.menu-card:nth-child(2) {
+      animation-delay: 0.2s;
+}
+.menu-card:nth-child(3) {
+      animation-delay: 0.3s;
+}
 
 .menu-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
 
-
-/* ===================== IMAGE ===================== */
 .menu-img {
       width: 100%;
       height: 180px;
@@ -1082,7 +1045,6 @@ a {
       transform: scale(1.05);
 }
 
-/* ===================== TEXT ===================== */
 .menu-info {
       padding: 1.2rem;
 }
@@ -1105,7 +1067,6 @@ a {
       font-size: var(--font-size-n);
 }
 
-/* ===================== ANIMATION ===================== */
 @keyframes fadeUp {
       from {
             transform: translateY(20px);
@@ -1117,9 +1078,97 @@ a {
       }
 }
 
-/*========================================
-  Footer
-========================================*/
+.order-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 5000;
+}
+.order-modal {
+      width: 95%;
+      max-width: 420px;
+      background: var(--creme-color);
+      border-radius: 20px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+      animation: fadeUp 0.3s ease;
+}
+.modal-header {
+      font-family: "Tiempos", serif;
+      font-size: 1.6rem;
+      margin-bottom: 0.3rem;
+      color: var(--green);
+}
+.modal-sub {
+      font-size: 0.95rem;
+      opacity: 0.8;
+      margin-bottom: 1rem;
+}
+.modal-row {
+      margin-bottom: 1.2rem;
+}
+.qty-box {
+      margin-top: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+}
+.qty-box button {
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: var(--green);
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.2rem;
+}
+.qty-box input {
+      width: 60px;
+      padding: 5px;
+      font-size: 1rem;
+      text-align: center;
+      border-radius: 8px;
+      border: 2px solid var(--green);
+}
+.size-options button {
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      border: 2px solid var(--green);
+      background: transparent;
+      color: var(--green);
+      cursor: pointer;
+      transition: 0.2s;
+      margin-right: 10px;
+}
+.size-options button.active {
+      background: var(--green);
+      color: white;
+}
+.modal-actions {
+      display: flex;
+      margin-top: 1.5rem;
+      justify-content: flex-end;
+      gap: 1rem;
+}
+.modal-actions button {
+      padding: 0.7rem 1.3rem;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      background: var(--orange);
+      color: white;
+      font-weight: bold;
+}
+.modal-close {
+      background: var(--red) !important;
+}
+
+
+/* FOOTER STYLES */
 .footer {
       background: #800000;
       color: #fff;
@@ -1168,9 +1217,7 @@ a {
       font-size: 0.8rem;
 }
 
-/*========================================
-  Responsive: consolidated breakpoints
-========================================*/
+/* RESPONSIVE */
 
 /* <= 968px */
 @media (max-width: 968px) {
@@ -1214,7 +1261,7 @@ a {
       }
 }
 
-/* <= 800px (nav adjustments) */
+/* <= 800px */
 @media (max-width: 800px) {
       .nav-container {
             padding: 0 1rem;
@@ -1232,7 +1279,7 @@ a {
       }
 }
 
-/* <= 768px (mobile general) */
+/* <= 768px */
 @media (max-width: 768px) {
       .hero-title {
             font-size: var(--font-size-3xl);
@@ -1291,7 +1338,7 @@ a {
       .nav-left a span:not(.bi),
       .nav-right a span:not(.bi) {
             display: inline;
-      } /* leave default, small screens handle below */
+      }
 }
 
 /* <= 600px */
