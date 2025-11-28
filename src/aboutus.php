@@ -18,7 +18,7 @@
       </head>
 
       <body>
-            <!-- Hero Section -->
+            <!-- HERO SECTION -->
             <section class="about-hero">
                   <div class="overlay"></div>
                   <div class="hero-content">
@@ -29,12 +29,13 @@
                               Filipino flavors, creativity, and community come
                               together.
                         </p>
+                  <img class = about-hero-image src="./assets/images/sample2.jpg" alt="Our Story" />
                   </div>
             </section>
 
             <!-- STORY SECTIONS -->
             <section class="about-section">
-                  <img src="images/filipinofood.avif" alt="Our Story" />
+                  <img src="./assets/images/sample2.jpg" alt="Our Story" />
                   <div class="about-text">
                         <h2>Our Story</h2>
                         <p>
@@ -49,7 +50,7 @@
             </section>
 
             <section class="about-section">
-                  <img src="images/filipino2.jpg" alt="Our Specialties" />
+                  <img src="./assets/images/filipino2.jpg" alt="Our Specialties" />
                   <div class="about-text">
                         <h2>Our Specialties</h2>
                         <p>
@@ -64,7 +65,7 @@
             </section>
 
             <section class="about-section">
-                  <img src="images/food3.jpg" alt="Our Vision" />
+                  <img src="./assets/images/food3.jpg" alt="Our Vision" />
                   <div class="about-text">
                         <h2>Our Vision</h2>
                         <p>
@@ -168,5 +169,6 @@
                         });
                   });
             </script>
+            <?php include("../src/partials/footer.php"); ?>
       </body>
 </html>

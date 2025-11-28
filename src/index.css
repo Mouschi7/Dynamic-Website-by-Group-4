@@ -1,18 +1,34 @@
 /* FONTS/ROOT STYLES */
 @font-face {
-      font-family: "Tiempos";
-      src: url("./assets/fonts/Tiempos/Tiempos-Text-Regular.woff2")
-                  format("woff2"),
-            url("./assets/fonts/Tiempos/Tiempos-Text-Regular.woff")
-                  format("woff");
-      font-weight: 400;
+      font-family: "Josefin-Sans";
+      src: url("./assets/fonts/Josefin-Sans/JosefinSans-Bold.woff2")
+            format("woff2");
+      font-weight: 500;
       font-style: normal;
       font-display: swap;
 }
+
 @font-face {
-      font-family: "Balto";
-      src: url("./assets/fonts/Balto/Balto-Medium.woff2") format("woff2"),
-            url("./assets/fonts/Balto/Balto-Medium.woff") format("woff");
+      font-family: "Miniver";
+      src: url("./assets/fonts/Miniver/Miniver-Regular.woff2") format("woff2");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+}
+
+@font-face {
+      font-family: "Open-Sans-Condensed";
+      src: url("./assets/fonts/Open-Sans-Condensed/OpenSans-CondBold.woff2")
+            format("woff2");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+}
+
+@font-face {
+      font-family: "Caviar-Dreams";
+      src: url("./assets/fonts/Caviar-Dreams/CaviarDreams_Bold.woff2")
+            format("woff2");
       font-weight: 500;
       font-style: normal;
       font-display: swap;
@@ -30,6 +46,10 @@
       --red: #d14848;
       --banana-leaf: #7cb342;
       --forest-green: #228b22;
+      --aquatic-darkgreen: #0f1d22;
+      --modern-grey: #0b1315;
+      --header-color: #ceac7d;
+      --paragraph: #fff0c2;
 
       /* Font sizes */
       --font-size-s: clamp(0.85rem, 0.9vw, 0.95rem);
@@ -94,7 +114,7 @@ a {
       align-items: center;
       justify-content: center;
       padding: 0 20px;
-      background: var(--orange);
+      background: var(--aquatic-darkgreen);
       color: var(--rice-white);
       font-size: 0.9rem;
       letter-spacing: 0.2px;
@@ -181,7 +201,7 @@ a {
 }
 .nav-logo .logo-creative {
       margin: 0;
-      font-family: "Tiempos", serif;
+      font-family: "Miniver", serif;
       font-weight: 400;
       font-size: clamp(1.6rem, 2.6vw, 2.4rem);
       color: var(--creme-color);
@@ -212,7 +232,7 @@ a {
       font-size: var(--font-size-n);
       color: var(--creme-color);
       opacity: 0.95;
-      font-family: "Balto", sans-serif;
+      font-family: "Caviar-Dreams", sans-serif;
       font-weight: 500;
       transition: all 0.3s ease;
 }
@@ -361,7 +381,7 @@ a {
   Why Section Styles
 ========================================*/
 .why-section {
-      background: var(--green);
+      background: var(--modern-grey);
       padding: 6rem 2rem;
       display: flex;
       align-items: center;
@@ -413,7 +433,7 @@ a {
       transition: all 0.3s ease;
 }
 .why-button:hover {
-      background: var(--banana-leaf);
+      background: var(--vivid-red);
       transform: translateY(-2px);
 }
 .why-image {
@@ -471,34 +491,10 @@ a {
       font-size: 1rem;
       margin-bottom: 1.5rem;
 }
-.mini-buttons {
-      display: flex;
-      gap: 1rem;
-}
-.btn.orange {
-      background: var(--orange);
-      border: 0;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 20px;
-      cursor: pointer;
-}
-.btn.orange-outline {
-      background: transparent;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 20px;
-      border: 2px solid var(--orange);
-      cursor: pointer;
-}
-.btn.orange:hover,
-.btn.orange-outline:hover {
-      background: var(--vivid-red);
-}
 
 /* SPECIALS STYLES */
 .specials {
-      background: #ff9559;
+      background: var(--modern-grey);
       color: #fff;
       padding: 5rem 2rem;
       text-align: center;
@@ -522,7 +518,7 @@ a {
 }
 .special-card {
       display: flex;
-      background: #0f8b8d;
+      background: var(--aquatic-darkgreen);
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
@@ -620,9 +616,10 @@ a {
 
 /* TESTIMONIAL STYLES */
 .testimonials {
-      background: var(--creme-color);
+      background: var(--aquatic-darkgreen);
       padding: 5rem 2rem;
       text-align: center;
+      color: var(--rice-white);
 }
 .testimonials-slider {
       display: flex;
@@ -631,7 +628,7 @@ a {
       gap: 2rem;
 }
 .testimonial {
-      background: #fff;
+      background: var(--modern-grey);
       border-radius: 20px;
       padding: 2rem;
       max-width: 250px;
@@ -786,11 +783,11 @@ a {
       justify-content: space-between;
       gap: 3rem;
       padding: 5rem 10%;
-      background: var(--rice-white);
+      background: var(--aquatic-darkgreen);
 }
 .about-section:nth-child(even) {
       flex-direction: row-reverse;
-      background: var(--creme-color);
+      background: var(--modern-grey);
 }
 .about-section img {
       width: 45%;
@@ -806,27 +803,32 @@ a {
       opacity: 0;
       transform: translateY(40px);
       transition: all 0.8s;
+      z-index: 100;
 }
 .about-text.visible {
       opacity: 1;
       transform: translateY(0);
+      z-index: 100;
 }
 .about-text h2 {
       font-family: "Tiempos", serif;
-      color: var(--green);
+      color: var(--rice-white);
       font-size: var(--font-size-xl);
       margin-bottom: 1rem;
+      z-index: 100;
 }
 .about-text p {
       font-family: "Balto", sans-serif;
       line-height: 1.8;
       font-size: var(--font-size-n);
+      z-index: 100;
+      color: var(--rice-white);
 }
 
 /* FAQs STYLES */
 .faq-section {
       padding: 5rem 10%;
-      background: linear-gradient(to right, #fdf9e5, #fff8f0);
+      background: var(--aquatic-darkgreen);
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
@@ -839,17 +841,17 @@ a {
 .faq-left h2 {
       font-family: "Tiempos", serif;
       font-size: var(--font-size-xxl);
-      color: var(--vivid-red);
+      color: var(--creme-color);
       margin-bottom: 1rem;
 }
 .faq-left p {
       font-size: var(--font-size-n);
       line-height: 1.8;
-      color: var(--gray-color);
+      color: var(--creme-color);
       margin-bottom: 1rem;
 }
 .faq-right .faq-item {
-      background: #fff;
+      background: var(--modern-grey);
       border-radius: var(--border-radius-s);
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
       margin-bottom: 1rem;
@@ -865,7 +867,7 @@ a {
       justify-content: space-between;
       align-items: center;
       font-weight: 600;
-      color: var(--green);
+      color: var(--creme-color);
       font-size: var(--font-size-n);
 }
 .faq-answer {
@@ -873,7 +875,7 @@ a {
       overflow: hidden;
       opacity: 0;
       transition: all 0.4s;
-      color: var(--gray-color);
+      color: var(--rice-white);
       font-size: var(--font-size-s);
       padding-top: 0;
 }
@@ -922,7 +924,7 @@ a {
                   rgba(70, 148, 107, 0.1),
                   rgba(255, 248, 240, 0.7)
             ),
-            url("../src/assets/images/hero-bg.jpg");
+            url("../src/assets/images/sample2.jpg");
       background-size: cover;
       background-position: center;
 }
@@ -942,13 +944,14 @@ a {
 .menu-section {
       padding: 3rem 0 2rem;
       width: 100%;
+      background-color: var(--modern-grey);
 }
 
 .menu-section-title {
       text-align: center;
       font-family: "Tiempos", serif;
       font-size: var(--font-size-xl);
-      color: var(--green);
+      color: var(--rice-white);
       margin-bottom: 1.5rem;
       letter-spacing: 0.5px;
       opacity: 0;
@@ -965,9 +968,9 @@ a {
       flex-wrap: wrap;
       position: sticky;
       top: calc(var(--navbar-height) + var(--topbar-height));
-      background: var(--rice-white);
+      background: var(--aquatic-darkgreen);
       z-index: 800;
-      border-bottom: 1px solid #eee;
+      border-bottom: 2px solid #eee;
 }
 
 .menu-categories button {
@@ -1004,7 +1007,7 @@ a {
 }
 
 .menu-card {
-      background: var(--creme-color);
+      background: var(--aquatic-darkgreen);
       border-radius: var(--border-radius-m);
       overflow: hidden;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
@@ -1051,7 +1054,7 @@ a {
 
 .menu-info h3 {
       font-size: var(--font-size-m);
-      color: var(--gray-color);
+      color: var(--header-color);
       margin-bottom: 0.2rem;
 }
 
@@ -1059,11 +1062,12 @@ a {
       font-size: var(--font-size-s);
       opacity: 0.8;
       margin-bottom: 0.6rem;
+      color: var(--creme-color);
 }
 
 .price {
       font-weight: 600;
-      color: var(--orange);
+      color: var(--header-color);
       font-size: var(--font-size-n);
 }
 
@@ -1167,10 +1171,9 @@ a {
       background: var(--red) !important;
 }
 
-
 /* FOOTER STYLES */
 .footer {
-      background: #800000;
+      background: var(--modern-grey);
       color: #fff;
       padding: 3rem 2rem;
       font-size: 0.95rem;

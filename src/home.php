@@ -110,9 +110,6 @@
                                                                   >⭐⭐⭐⭐⭐ 5.0</span
                                                             >
                                                       </div>
-                                                      <button class="btn order-btn">
-                                                            Order now
-                                                      </button>
                                                 </div>
                                           </div>
                                     </div>

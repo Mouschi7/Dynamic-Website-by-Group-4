@@ -52,6 +52,63 @@
                                           <span class="price">₱129</span>
                                     </div>
                               </div>
+
+                              <div
+                                    class="menu-card"
+                                    data-name="Chicken Chops"
+                                    data-price="129"
+                                    data-type="meal"
+                                    data-img="../src/assets/images/ChickenChops.png"
+                              >
+                                    <div class="menu-img">
+                                          <img
+                                                src="../src/assets/images/ChickenChops.png"
+                                          />
+                                    </div>
+                                    <div class="menu-info">
+                                          <h3>Chicken Chops</h3>
+                                          <p>Served with house gravy.</p>
+                                          <span class="price">₱129</span>
+                                    </div>
+                              </div>
+
+                              <div
+                                    class="menu-card"
+                                    data-name="Chicken Chops"
+                                    data-price="129"
+                                    data-type="meal"
+                                    data-img="../src/assets/images/ChickenChops.png"
+                              >
+                                    <div class="menu-img">
+                                          <img
+                                                src="../src/assets/images/ChickenChops.png"
+                                          />
+                                    </div>
+                                    <div class="menu-info">
+                                          <h3>Chicken Chops</h3>
+                                          <p>Served with house gravy.</p>
+                                          <span class="price">₱129</span>
+                                    </div>
+                              </div>
+
+                              <div
+                                    class="menu-card"
+                                    data-name="Chicken Chops"
+                                    data-price="129"
+                                    data-type="meal"
+                                    data-img="../src/assets/images/ChickenChops.png"
+                              >
+                                    <div class="menu-img">
+                                          <img
+                                                src="../src/assets/images/ChickenChops.png"
+                                          />
+                                    </div>
+                                    <div class="menu-info">
+                                          <h3>Chicken Chops</h3>
+                                          <p>Served with house gravy.</p>
+                                          <span class="price">₱129</span>
+                                    </div>
+                              </div>
                         </div>
                   </section>
 
@@ -59,6 +116,48 @@
                         <h2 class="menu-section-title">Drinks</h2>
 
                         <div class="menu-grid">
+                              <div
+                                    class="menu-card"
+                                    data-name="Coke"
+                                    data-price="49"
+                                    data-type="drink"
+                                    data-img-small="../src/assets/images/CokeSmall.png"
+                                    data-img-medium="../src/assets/images/CokeMedium.png"
+                                    data-img-large="../src/assets/images/CokeLarge.png"
+                              >
+                                    <div class="menu-img">
+                                          <img
+                                                src="../src/assets/images/CokeLarge.png"
+                                          />
+                                    </div>
+                                    <div class="menu-info">
+                                          <h3>Coke</h3>
+                                          <p>The classic coke.</p>
+                                          <span class="price">₱25</span>
+                                    </div>
+                              </div>
+
+                              <div
+                                    class="menu-card"
+                                    data-name="Coke"
+                                    data-price="49"
+                                    data-type="drink"
+                                    data-img-small="../src/assets/images/CokeSmall.png"
+                                    data-img-medium="../src/assets/images/CokeMedium.png"
+                                    data-img-large="../src/assets/images/CokeLarge.png"
+                              >
+                                    <div class="menu-img">
+                                          <img
+                                                src="../src/assets/images/CokeLarge.png"
+                                          />
+                                    </div>
+                                    <div class="menu-info">
+                                          <h3>Coke</h3>
+                                          <p>The classic coke.</p>
+                                          <span class="price">₱25</span>
+                                    </div>
+                              </div>
+
                               <div
                                     class="menu-card"
                                     data-name="Coke"
@@ -104,6 +203,63 @@
                                           <span class="price">₱20</span>
                                     </div>
                               </div>
+
+                              <div
+                                    class="menu-card"
+                                    data-name="Garlic Fried Rice"
+                                    data-type="meal"
+                                    data-price="69"
+                                    data-img="../src/assets/images/ChickenChops.png"
+                              >
+                                    <div class="menu-img">
+                                          <img
+                                                src="../src/assets/images/ChickenChops.png"
+                                          />
+                                    </div>
+                                    <div class="menu-info">
+                                          <h3>Garlic Fried Rice</h3>
+                                          <p>Classic Filipino fried rice.</p>
+                                          <span class="price">₱20</span>
+                                    </div>
+                              </div>
+
+                              <div
+                                    class="menu-card"
+                                    data-name="Garlic Fried Rice"
+                                    data-type="meal"
+                                    data-price="69"
+                                    data-img="../src/assets/images/ChickenChops.png"
+                              >
+                                    <div class="menu-img">
+                                          <img
+                                                src="../src/assets/images/ChickenChops.png"
+                                          />
+                                    </div>
+                                    <div class="menu-info">
+                                          <h3>Garlic Fried Rice</h3>
+                                          <p>Classic Filipino fried rice.</p>
+                                          <span class="price">₱20</span>
+                                    </div>
+                              </div>
+
+                              <div
+                                    class="menu-card"
+                                    data-name="Garlic Fried Rice"
+                                    data-type="meal"
+                                    data-price="69"
+                                    data-img="../src/assets/images/ChickenChops.png"
+                              >
+                                    <div class="menu-img">
+                                          <img
+                                                src="../src/assets/images/ChickenChops.png"
+                                          />
+                                    </div>
+                                    <div class="menu-info">
+                                          <h3>Garlic Fried Rice</h3>
+                                          <p>Classic Filipino fried rice.</p>
+                                          <span class="price">₱20</span>
+                                    </div>
+                              </div>
                         </div>
                   </section>
 
@@ -111,6 +267,44 @@
                         <h2 class="menu-section-title">Tofu Square</h2>
 
                         <div class="menu-grid">
+                              <div
+                                    class="menu-card"
+                                    data-name="Crispy Tofu"
+                                    data-price="89"
+                                    data-type="meal"
+                                    data-img="../src/assets/images/ChickenChops.png"
+                              >
+                                    <div class="menu-img">
+                                          <img
+                                                src="../src/assets/images/ChickenChops.png"
+                                          />
+                                    </div>
+                                    <div class="menu-info">
+                                          <h3>Crispy Tofu</h3>
+                                          <p>Served with sweet chili sauce.</p>
+                                          <span class="price">₱89</span>
+                                    </div>
+                              </div>
+
+                              <div
+                                    class="menu-card"
+                                    data-name="Crispy Tofu"
+                                    data-price="89"
+                                    data-type="meal"
+                                    data-img="../src/assets/images/ChickenChops.png"
+                              >
+                                    <div class="menu-img">
+                                          <img
+                                                src="../src/assets/images/ChickenChops.png"
+                                          />
+                                    </div>
+                                    <div class="menu-info">
+                                          <h3>Crispy Tofu</h3>
+                                          <p>Served with sweet chili sauce.</p>
+                                          <span class="price">₱89</span>
+                                    </div>
+                              </div>
+
                               <div
                                     class="menu-card"
                                     data-name="Crispy Tofu"
@@ -154,6 +348,63 @@
                                           <span class="price">₱199</span>
                                     </div>
                               </div>
+
+                              <div
+                                    class="menu-card"
+                                    data-name="Chicken + Tofu Combo"
+                                    data-price="199"
+                                    data-type="meal"
+                                    data-img="../src/assets/images/ChickenChops.png"
+                              >
+                                    <div class="menu-img">
+                                          <img
+                                                src="../src/assets/images/ChickenChops.png"
+                                          />
+                                    </div>
+                                    <div class="menu-info">
+                                          <h3>Chicken + Tofu Combo</h3>
+                                          <p>Perfect pair.</p>
+                                          <span class="price">₱199</span>
+                                    </div>
+                              </div>
+
+                              <div
+                                    class="menu-card"
+                                    data-name="Chicken + Tofu Combo"
+                                    data-price="199"
+                                    data-type="meal"
+                                    data-img="../src/assets/images/ChickenChops.png"
+                              >
+                                    <div class="menu-img">
+                                          <img
+                                                src="../src/assets/images/ChickenChops.png"
+                                          />
+                                    </div>
+                                    <div class="menu-info">
+                                          <h3>Chicken + Tofu Combo</h3>
+                                          <p>Perfect pair.</p>
+                                          <span class="price">₱199</span>
+                                    </div>
+                              </div>
+
+                              <div
+                                    class="menu-card"
+                                    data-name="Chicken + Tofu Combo"
+                                    data-price="199"
+                                    data-type="meal"
+                                    data-img="../src/assets/images/ChickenChops.png"
+                              >
+                                    <div class="menu-img">
+                                          <img
+                                                src="../src/assets/images/ChickenChops.png"
+                                          />
+                                    </div>
+                                    <div class="menu-info">
+                                          <h3>Chicken + Tofu Combo</h3>
+                                          <p>Perfect pair.</p>
+                                          <span class="price">₱199</span>
+                                    </div>
+                              </div>
                         </div>
                   </section>
 
@@ -161,6 +412,44 @@
                         <h2 class="menu-section-title">Extras</h2>
 
                         <div class="menu-grid">
+                              <div
+                                    class="menu-card"
+                                    data-name="Extra Rice"
+                                    data-price="20"
+                                    data-type="meal"
+                                    data-img="../src/assets/images/ChickenChops.png"
+                              >
+                                    <div class="menu-img">
+                                          <img
+                                                src="../src/assets/images/ChickenChops.png"
+                                          />
+                                    </div>
+                                    <div class="menu-info">
+                                          <h3>Extra Rice</h3>
+                                          <p>Steamed and fluffy.</p>
+                                          <span class="price">₱20</span>
+                                    </div>
+                              </div>
+
+                              <div
+                                    class="menu-card"
+                                    data-name="Extra Rice"
+                                    data-price="20"
+                                    data-type="meal"
+                                    data-img="../src/assets/images/ChickenChops.png"
+                              >
+                                    <div class="menu-img">
+                                          <img
+                                                src="../src/assets/images/ChickenChops.png"
+                                          />
+                                    </div>
+                                    <div class="menu-info">
+                                          <h3>Extra Rice</h3>
+                                          <p>Steamed and fluffy.</p>
+                                          <span class="price">₱20</span>
+                                    </div>
+                              </div>
+
                               <div
                                     class="menu-card"
                                     data-name="Extra Rice"

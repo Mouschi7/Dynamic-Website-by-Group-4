@@ -1,3 +1,19 @@
+:root {
+      /* Colors */
+      --gray-color: #252525;
+      --black-color: #000;
+      --rice-white: #fff8f0;
+      --creme-color: #fdf9e5;
+      --vivid-red: #cb0000;
+      --green: #46946b;
+      --orange: #ef9458;
+      --red: #d14848;
+      --banana-leaf: #7cb342;
+      --forest-green: #228b22;
+      --aquatic-darkgreen: #0f1d22;
+      --modern-grey: #0b1315;
+}
+
 body {
       margin: 0px;
       padding: 0px;
@@ -18,8 +34,8 @@ body {
       padding: 0;
       background: linear-gradient(
             135deg,
-            var(--green) 0%,
-            var(--forest-green) 100%
+            var(--aquatic-darkgreen) 0%,
+            var(--aquatic-darkgreen) 100%
       );
       position: relative;
       display: flex;
@@ -64,8 +80,8 @@ body {
       height: 100%;
       background: linear-gradient(
             90deg,
-            rgba(70, 148, 107, 0.8) 0%,
-            rgba(70, 148, 107, 0.4) 40%,
+            rgba(2, 48, 59, 0.979) 0%,
+            rgba(6, 81, 87, 0.4) 40%,
             rgba(70, 148, 107, 0.2) 70%
       );
       pointer-events: none;
@@ -91,7 +107,7 @@ body {
 }
 
 .landing h1 {
-      font-family: "Tiempos", serif;
+      font-family: "Caviar-Dreams", serif;
       font-size: 64px;
       line-height: 0.94;
       margin: 0 0 18px 0;
@@ -107,13 +123,14 @@ body {
       font-size: 18px;
       line-height: 1.6;
       font-weight: 400;
+      font-family: "Open-Sans-Condensed", serif;
 }
 
 .landing .cta {
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      background: var(--orange);
+      background: var(--aquatic-darkgreen);
       color: var(--rice-white);
       padding: 14px 28px;
       border-radius: 30px;
@@ -128,7 +145,7 @@ body {
 }
 
 .landing .cta:hover {
-      background: var(--vivid-red);
+      background: var(--modern-grey);
       transform: translateY(-2px);
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
 }
@@ -149,7 +166,7 @@ body {
 
 .landing .overlay-controls button {
       pointer-events: auto;
-      background: var(--orange);
+      background: var(--modern-grey);
       border: none;
       width: 44px;
       height: 44px;
@@ -191,7 +208,7 @@ body {
 }
 
 .landing .indicator.active {
-      background: var(--orange);
+      background: var(--modern-grey);
       transform: scale(1.2);
 }
 

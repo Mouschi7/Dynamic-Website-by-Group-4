@@ -3,84 +3,77 @@
 
 <!DOCTYPE html>
 <html lang="en">
-      <head>
-            <meta charset="UTF-8" />
-            <meta
-                  name="viewport"
-                  content="width=device-width, initial-scale=1.0"
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-section">
+        <h2 class="fade-in">Hello our favorite<br />customer :</h2>
+
+        <button class="google-btn bounce">Sign up with Google</button>
+
+        <div class="social-icons fade-in">
+          <a href="#"><img src="./assets/images/fb.jpg" alt="Facebook" /></a>
+          <a href="#"><img src="./assets/images/twitter.png" alt="X" /></a>
+          <a href="#"><img src="./assets/images/insta.jpg" alt="Instagram" /></a>
+        </div>
+
+        <p class="divider fade-in">
+          ----------------------------------- OR
+          -----------------------------------
+        </p>
+
+        <form class="fade-in" action="register.php" method="post">
+          <div class="input-row">
+            <input type="text" name="name" placeholder="Name" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              required
             />
-            <title>Kusina ni Kape'Tan | Login / Register</title>
-            <link rel="stylesheet" href="../src/index.css" />
-      </head>
+          </div>
 
-      <body>
-            <div class="login-page">
-                  <div class="auth-container" id="authBox">
-                        <!-- LOGIN FORM -->
-                        <div id="loginForm">
-                              <h2>Welcome Back ☕</h2>
-                              <div class="form-group">
-                                    <label>Email</label>
-                                    <input
-                                          type="email"
-                                          placeholder="Enter your email"
-                                    />
-                              </div>
-                              <div class="form-group">
-                                    <label>Password</label>
-                                    <input
-                                          type="password"
-                                          placeholder="Enter your password"
-                                    />
-                              </div>
-                              <button class="btn">Login</button>
-                              <p class="toggle-text">
-                                    Don’t have an account?
-                                    <span onclick="toggleForm()">Register</span>
-                              </p>
-                        </div>
+          <div class="input-row">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+            <input
+              type="password"
+              name="password_repeat"
+              placeholder="Repeat password"
+              required
+            />
+          </div>
 
-                        <!-- REGISTER FORM -->
-                        <div id="registerForm" class="hidden">
-                              <h2>Create Account 🍴</h2>
-                              <div class="form-group">
-                                    <label>Full Name</label>
-                                    <input
-                                          type="text"
-                                          placeholder="Your name"
-                                    />
-                              </div>
-                              <div class="form-group">
-                                    <label>Email</label>
-                                    <input
-                                          type="email"
-                                          placeholder="Your email"
-                                    />
-                              </div>
-                              <div class="form-group">
-                                    <label>Password</label>
-                                    <input
-                                          type="password"
-                                          placeholder="Choose a password"
-                                    />
-                              </div>
-                              <button class="btn">Register</button>
-                              <p class="toggle-text">
-                                    Already have an account?
-                                    <span onclick="toggleForm()">Login</span>
-                              </p>
-                        </div>
-                  </div>
-            </div>
+          <div class="terms">
+            <input type="checkbox" id="agree" name="agree" value="1" required />
+            <label for="agree"
+              >I agree terms of service and privacy policy</label
+            >
+          </div>
 
-            <script>
-                  const loginForm = document.getElementById("loginForm");
-                  const registerForm = document.getElementById("registerForm");
+          <button type="submit" class="signup-btn bounce">Sign up</button>
+        </form>
+      </div>
 
-                  function toggleForm() {
-                        loginForm.classList.toggle("hidden");
-                        registerForm.classList.toggle("hidden");
-                  }
-            </script>
-      </body>
+      <div class="image-section">
+        <img src="./assets/images/sample1.jpg" alt="Breakfast Meal" />
+      </div>
+    </div>
+
+    <script src="login.js"></script>
+  </body>
 </html>
