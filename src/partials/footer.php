@@ -12,9 +12,9 @@
             <div class="footer-column">
                   <h3>About Us</h3>
                   <ul>
-                        <li><a href="#">What is Kusina ni Kape'Tan?</a></li>
-                        <li><a href="#">History & Background</a></li>
-                        <li><a href="#">Business Overview & FAQs</a></li>
+                        <li><a href="aboutus.php">What is Kusina ni Kape'Tan?</a></li>
+                        <li><a href="site_map.php">History & Background</a></li>
+                        <li><a href="contact.php">Business Overview & FAQs</a></li>
                   </ul>
             </div>
 

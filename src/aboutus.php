@@ -11,10 +11,6 @@
             />
             <title>About Us - Kusina ni Kapetan</title>
             <link rel="stylesheet" href="index.css" />
-            <link
-                  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans&display=swap"
-                  rel="stylesheet"
-            />
       </head>
 
       <body>

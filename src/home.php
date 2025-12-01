@@ -12,7 +12,7 @@
       <body>
             <main>
                   <section class="hero">
-                        <video autoplay muted loop playsinline class="hero-video" aria-hidden="true">
+                        <video autoplay muted loop playsinline class="hero-video">
                               <source src="./assets/videos/bgedit.mp4" type="video/mp4" />
                               Your browser does not support the video tag.
                         </video>
@@ -85,7 +85,6 @@
                               <button
                                     id="prevSpecialBtn"
                                     class="arrow-btn left"
-                                    aria-label="Previous special"
                               >
                                     <i class="bi bi-chevron-left"></i>
                               </button>
@@ -196,7 +195,6 @@
                               <button
                                     id="nextSpecialBtn"
                                     class="arrow-btn right"
-                                    aria-label="Next special"
                               >
                                     <i class="bi bi-chevron-right"></i>
                               </button>

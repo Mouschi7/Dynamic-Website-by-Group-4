@@ -3,528 +3,172 @@
 
 <!DOCTYPE html>
 <html lang="en">
-      <head>
-            <meta charset="UTF-8" />
-            <meta
-                  name="viewport"
-                  content="width=device-width, initial-scale=1.0"
-            />
-            <link rel="stylesheet" href="index.css" />
-            <title>Menu | Kusina ni Kape'Tan</title>
-      </head>
-      <body>
-            <main>
-                  <section class="menu-hero">
-                        <h1>Our Menu</h1>
-                        <p>Flavorful and Budget-Friendly Meals to All!</p>
-                  </section>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | Kusina ni Kape'Tan</title>
+    <link rel="stylesheet" href="index.css">
+    <script defer src="./script.js"></script>
+</head>
+<body>
 
-                  <section class="menu-categories">
-                        <button data-target="rice-meals" class="active">
-                              Rice Meals
-                        </button>
-                        <button data-target="drinks">Drinks</button>
-                        <button data-target="fried-rice">Fried Rice</button>
-                        <button data-target="tofu-square">Tofu Square</button>
-                        <button data-target="combo-meals">Combo Meals</button>
-                        <button data-target="extras">Extras</button>
-                  </section>
+<!-- HERO SECTION -->
+<section class="menu-hero">
+    <div class="menu-hero-content">
+        <h1>Our Menu</h1>
+        <p>Crafted with passion. Served with love.</p>
+    </div>
+</section>
 
-                  <section id="rice-meals" class="menu-section">
-                        <h2 class="menu-section-title">Rice Meals</h2>
+<div class="menu-wrapper">
 
-                        <div class="menu-grid">
-                              <div
-                                    class="menu-card"
-                                    data-name="Chicken Chops"
-                                    data-price="129"
-                                    data-type="meal"
-                                    data-img="../src/assets/images/ChickenChops.png"
-                              >
-                                    <div class="menu-img">
-                                          <img
-                                                src="../src/assets/images/ChickenChops.png"
-                                          />
-                                    </div>
-                                    <div class="menu-info">
-                                          <h3>Chicken Chops</h3>
-                                          <p>Served with house gravy.</p>
-                                          <span class="price">₱129</span>
-                                    </div>
-                              </div>
+    <!-- TOP STICKY CATEGORIES (desktop & mobile friendly) -->
+    <div class="menu-categories">
+        <button class="active" data-target="drinks">Drinks</button>
+        <button data-target="rice-meals">Rice Meals</button>
+        <button data-target="combo-meals">Combo Meals</button>
+        <button data-target="extras">Extras</button>
+        <button data-target="fried-rice">Fried Rice</button>
+        <button data-target="tofu-squares">Tofu Squares</button>
+    </div>
 
-                              <div
-                                    class="menu-card"
-                                    data-name="Chicken Chops"
-                                    data-price="129"
-                                    data-type="meal"
-                                    data-img="../src/assets/images/ChickenChops.png"
-                              >
-                                    <div class="menu-img">
-                                          <img
-                                                src="../src/assets/images/ChickenChops.png"
-                                          />
-                                    </div>
-                                    <div class="menu-info">
-                                          <h3>Chicken Chops</h3>
-                                          <p>Served with house gravy.</p>
-                                          <span class="price">₱129</span>
-                                    </div>
-                              </div>
+    <!-- LEFT FIXED SIDEBAR (optional quick nav) -->
+    <aside class="menu-sidebar">
+        <ul>
+            <li><button class="active" data-target="drinks">Drinks</button></li>
+            <li><button data-target="rice-meals">Rice Meals</button></li>
+            <li><button data-target="combo-meals">Combo Meals</button></li>
+            <li><button data-target="extras">Extras</button></li>
+            <li><button data-target="fried-rice">Fried Rice</button></li>
+            <li><button data-target="tofu-squares">Tofu Squares</button></li>
+        </ul>
+    </aside>
 
-                              <div
-                                    class="menu-card"
-                                    data-name="Chicken Chops"
-                                    data-price="129"
-                                    data-type="meal"
-                                    data-img="../src/assets/images/ChickenChops.png"
-                              >
-                                    <div class="menu-img">
-                                          <img
-                                                src="../src/assets/images/ChickenChops.png"
-                                          />
-                                    </div>
-                                    <div class="menu-info">
-                                          <h3>Chicken Chops</h3>
-                                          <p>Served with house gravy.</p>
-                                          <span class="price">₱129</span>
-                                    </div>
-                              </div>
+    <!-- MENU CONTENT AREA -->
+    <main class="menu-content">
 
-                              <div
-                                    class="menu-card"
-                                    data-name="Chicken Chops"
-                                    data-price="129"
-                                    data-type="meal"
-                                    data-img="../src/assets/images/ChickenChops.png"
-                              >
-                                    <div class="menu-img">
-                                          <img
-                                                src="../src/assets/images/ChickenChops.png"
-                                          />
-                                    </div>
-                                    <div class="menu-info">
-                                          <h3>Chicken Chops</h3>
-                                          <p>Served with house gravy.</p>
-                                          <span class="price">₱129</span>
-                                    </div>
-                              </div>
-                        </div>
-                  </section>
+        <!-- DRINKS -->
+        <section id="drinks" class="menu-section">
+            <h2 class="menu-section-title">Drinks</h2>
+            <div class="menu-grid">
 
-                  <section id="drinks" class="menu-section">
-                        <h2 class="menu-section-title">Drinks</h2>
+                <div class="menu-card">
+                    <img src="../assets/images/sample1.jpg" alt="">
+                    <div class="menu-info">
+                        <h3>Lemon Iced Tea</h3>
+                        <p>Refreshing homemade iced tea.</p>
+                        <span class="price">₱95</span>
+                        <button class="modal-btn" data-item="Lemon Iced Tea" data-price="95" data-type="drink">Order</button>
+                    </div>
+                </div>
 
-                        <div class="menu-grid">
-                              <div
-                                    class="menu-card"
-                                    data-name="Coke"
-                                    data-price="49"
-                                    data-type="drink"
-                                    data-img-small="../src/assets/images/CokeSmall.png"
-                                    data-img-medium="../src/assets/images/CokeMedium.png"
-                                    data-img-large="../src/assets/images/CokeLarge.png"
-                              >
-                                    <div class="menu-img">
-                                          <img
-                                                src="../src/assets/images/CokeLarge.png"
-                                          />
-                                    </div>
-                                    <div class="menu-info">
-                                          <h3>Coke</h3>
-                                          <p>The classic coke.</p>
-                                          <span class="price">₱25</span>
-                                    </div>
-                              </div>
+            </div>
+        </section>
 
-                              <div
-                                    class="menu-card"
-                                    data-name="Coke"
-                                    data-price="49"
-                                    data-type="drink"
-                                    data-img-small="../src/assets/images/CokeSmall.png"
-                                    data-img-medium="../src/assets/images/CokeMedium.png"
-                                    data-img-large="../src/assets/images/CokeLarge.png"
-                              >
-                                    <div class="menu-img">
-                                          <img
-                                                src="../src/assets/images/CokeLarge.png"
-                                          />
-                                    </div>
-                                    <div class="menu-info">
-                                          <h3>Coke</h3>
-                                          <p>The classic coke.</p>
-                                          <span class="price">₱25</span>
-                                    </div>
-                              </div>
+        <!-- RICE MEALS -->
+        <section id="rice-meals" class="menu-section">
+            <h2 class="menu-section-title">Rice Meals</h2>
+            <div class="menu-grid">
 
-                              <div
-                                    class="menu-card"
-                                    data-name="Coke"
-                                    data-price="49"
-                                    data-type="drink"
-                                    data-img-small="../src/assets/images/CokeSmall.png"
-                                    data-img-medium="../src/assets/images/CokeMedium.png"
-                                    data-img-large="../src/assets/images/CokeLarge.png"
-                              >
-                                    <div class="menu-img">
-                                          <img
-                                                src="../src/assets/images/CokeLarge.png"
-                                          />
-                                    </div>
-                                    <div class="menu-info">
-                                          <h3>Coke</h3>
-                                          <p>The classic coke.</p>
-                                          <span class="price">₱25</span>
-                                    </div>
-                              </div>
-                        </div>
-                  </section>
+                <div class="menu-card" data-name="Chicken Chops" data-price="120">
+                    <div class="menu-img"><img src="/src/assets/images/ChickenChops.png" alt="Chicken Chops"></div>
+                    <div class="menu-info">
+                        <h3>Chicken Chops</h3>
+                        <p>Perfectly seared Chicken Chops with herbs.</p>
+                        <span class="price">₱650</span>
+                        <button class="modal-btn" data-item="Chicken Chops" data-price="120" data-type="rice-meal">Order</button>
+                    </div>
+                </div>
 
-                  <section id="fried-rice" class="menu-section">
-                        <h2 class="menu-section-title">Fried Rice</h2>
+            </div>
+        </section>
 
-                        <div class="menu-grid">
-                              <div
-                                    class="menu-card"
-                                    data-name="Garlic Fried Rice"
-                                    data-type="meal"
-                                    data-price="69"
-                                    data-img="../src/assets/images/ChickenChops.png"
-                              >
-                                    <div class="menu-img">
-                                          <img
-                                                src="../src/assets/images/ChickenChops.png"
-                                          />
-                                    </div>
-                                    <div class="menu-info">
-                                          <h3>Garlic Fried Rice</h3>
-                                          <p>Classic Filipino fried rice.</p>
-                                          <span class="price">₱20</span>
-                                    </div>
-                              </div>
+        <!-- COMBO MEALS -->
+        <section id="combo-meals" class="menu-section">
+            <h2 class="menu-section-title">Combo Meals</h2>
+            <div class="menu-grid">
 
-                              <div
-                                    class="menu-card"
-                                    data-name="Garlic Fried Rice"
-                                    data-type="meal"
-                                    data-price="69"
-                                    data-img="../src/assets/images/ChickenChops.png"
-                              >
-                                    <div class="menu-img">
-                                          <img
-                                                src="../src/assets/images/ChickenChops.png"
-                                          />
-                                    </div>
-                                    <div class="menu-info">
-                                          <h3>Garlic Fried Rice</h3>
-                                          <p>Classic Filipino fried rice.</p>
-                                          <span class="price">₱20</span>
-                                    </div>
-                              </div>
+                <div class="menu-card" data-name="Family Combo" data-price="1200">
+                    <div class="menu-img"><img src="../assets/images/sample3.jpg" alt="Family Combo"></div>
+                    <div class="menu-info">
+                        <h3>Family Combo</h3>
+                        <p>Sharing combo for 4 with sides.</p>
+                        <span class="price">₱1200</span>
+                        <button class="modal-btn" data-item="Family Combo" data-price="1200" data-type="combo">Order</button>
+                    </div>
+                </div>
 
-                              <div
-                                    class="menu-card"
-                                    data-name="Garlic Fried Rice"
-                                    data-type="meal"
-                                    data-price="69"
-                                    data-img="../src/assets/images/ChickenChops.png"
-                              >
-                                    <div class="menu-img">
-                                          <img
-                                                src="../src/assets/images/ChickenChops.png"
-                                          />
-                                    </div>
-                                    <div class="menu-info">
-                                          <h3>Garlic Fried Rice</h3>
-                                          <p>Classic Filipino fried rice.</p>
-                                          <span class="price">₱20</span>
-                                    </div>
-                              </div>
+            </div>
+        </section>
 
-                              <div
-                                    class="menu-card"
-                                    data-name="Garlic Fried Rice"
-                                    data-type="meal"
-                                    data-price="69"
-                                    data-img="../src/assets/images/ChickenChops.png"
-                              >
-                                    <div class="menu-img">
-                                          <img
-                                                src="../src/assets/images/ChickenChops.png"
-                                          />
-                                    </div>
-                                    <div class="menu-info">
-                                          <h3>Garlic Fried Rice</h3>
-                                          <p>Classic Filipino fried rice.</p>
-                                          <span class="price">₱20</span>
-                                    </div>
-                              </div>
-                        </div>
-                  </section>
+        <!-- EXTRAS -->
+        <section id="extras" class="menu-section">
+            <h2 class="menu-section-title">Extras</h2>
+            <div class="menu-grid">
 
-                  <section id="tofu-square" class="menu-section">
-                        <h2 class="menu-section-title">Tofu Square</h2>
+                <div class="menu-card" data-name="Crispy Fries" data-price="120">
+                    <div class="menu-img"><img src="../assets/images/sample4.jpg" alt="Crispy Fries"></div>
+                    <div class="menu-info">
+                        <h3>Crispy Fries</h3>
+                        <p>Golden fries, lightly salted.</p>
+                        <span class="price">₱120</span>
+                        <button class="modal-btn" data-item="Crispy Fries" data-price="120" data-type="extras">Order</button>
+                    </div>
+                </div>
 
-                        <div class="menu-grid">
-                              <div
-                                    class="menu-card"
-                                    data-name="Crispy Tofu"
-                                    data-price="89"
-                                    data-type="meal"
-                                    data-img="../src/assets/images/ChickenChops.png"
-                              >
-                                    <div class="menu-img">
-                                          <img
-                                                src="../src/assets/images/ChickenChops.png"
-                                          />
-                                    </div>
-                                    <div class="menu-info">
-                                          <h3>Crispy Tofu</h3>
-                                          <p>Served with sweet chili sauce.</p>
-                                          <span class="price">₱89</span>
-                                    </div>
-                              </div>
+        <!-- FRIED RICE -->
+        <section id="fried-rice" class="menu-section">
+            <h2 class="menu-section-title">Fried Rice</h2>
+            <div class="menu-grid">
+                <div class="menu-card" data-name="Garlic Fried Rice" data-price="75">
+                    <div class="menu-img"><img src="../assets/images/sample5.jpg" alt="Garlic Fried Rice"></div>
+                    <div class="menu-info">
+                        <h3>Garlic Fried Rice</h3>
+                        <p>Fragrant garlic fried rice.</p>
+                        <span class="price">₱75</span>
+                        <button class="modal-btn" data-item="Garlic Fried Rice" data-price="75" data-type="fried-rice">Order</button>
+                    </div>
+                </div>
+            </div>
 
-                              <div
-                                    class="menu-card"
-                                    data-name="Crispy Tofu"
-                                    data-price="89"
-                                    data-type="meal"
-                                    data-img="../src/assets/images/ChickenChops.png"
-                              >
-                                    <div class="menu-img">
-                                          <img
-                                                src="../src/assets/images/ChickenChops.png"
-                                          />
-                                    </div>
-                                    <div class="menu-info">
-                                          <h3>Crispy Tofu</h3>
-                                          <p>Served with sweet chili sauce.</p>
-                                          <span class="price">₱89</span>
-                                    </div>
-                              </div>
+        <!-- TOFU SQUARES -->
+        <section id="tofu-squares" class="menu-section">
+            <h2 class="menu-section-title">Tofu Squares</h2>
+            <div class="menu-grid">
+                <div class="menu-card" data-name="Crispy Tofu Squares" data-price="140">
+                    <div class="menu-img"><img src="../assets/images/sample6.jpg" alt="Tofu Squares"></div>
+                    <div class="menu-info">
+                        <h3>Crispy Tofu Squares</h3>
+                        <p>Double-fried tofu squares with dip.</p>
+                        <span class="price">₱140</span>
+                        <button class="modal-btn" data-item="Crispy Tofu Squares" data-price="140" data-type="tofu">Order</button>
+                    </div>
+                </div>
+            </div>
 
-                              <div
-                                    class="menu-card"
-                                    data-name="Crispy Tofu"
-                                    data-price="89"
-                                    data-type="meal"
-                                    data-img="../src/assets/images/ChickenChops.png"
-                              >
-                                    <div class="menu-img">
-                                          <img
-                                                src="../src/assets/images/ChickenChops.png"
-                                          />
-                                    </div>
-                                    <div class="menu-info">
-                                          <h3>Crispy Tofu</h3>
-                                          <p>Served with sweet chili sauce.</p>
-                                          <span class="price">₱89</span>
-                                    </div>
-                              </div>
-                        </div>
-                  </section>
+            </div>
+        </section>
 
-                  <section id="combo-meals" class="menu-section">
-                        <h2 class="menu-section-title">Combo Meals</h2>
+    </main>
+</div>
 
-                        <div class="menu-grid">
-                              <div
-                                    class="menu-card"
-                                    data-name="Chicken + Tofu Combo"
-                                    data-price="199"
-                                    data-type="meal"
-                                    data-img="../src/assets/images/ChickenChops.png"
-                              >
-                                    <div class="menu-img">
-                                          <img
-                                                src="../src/assets/images/ChickenChops.png"
-                                          />
-                                    </div>
-                                    <div class="menu-info">
-                                          <h3>Chicken + Tofu Combo</h3>
-                                          <p>Perfect pair.</p>
-                                          <span class="price">₱199</span>
-                                    </div>
-                              </div>
+<!-- MODAL (accessible) -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box" tabindex="-1">
+        <button class="close-modal" id="closeModal">&times;</button>
 
-                              <div
-                                    class="menu-card"
-                                    data-name="Chicken + Tofu Combo"
-                                    data-price="199"
-                                    data-type="meal"
-                                    data-img="../src/assets/images/ChickenChops.png"
-                              >
-                                    <div class="menu-img">
-                                          <img
-                                                src="../src/assets/images/ChickenChops.png"
-                                          />
-                                    </div>
-                                    <div class="menu-info">
-                                          <h3>Chicken + Tofu Combo</h3>
-                                          <p>Perfect pair.</p>
-                                          <span class="price">₱199</span>
-                                    </div>
-                              </div>
+        <h2 id="modalItemName"></h2>
+        <p class="modal-price">₱<span id="modalItemPrice"></span></p>
 
-                              <div
-                                    class="menu-card"
-                                    data-name="Chicken + Tofu Combo"
-                                    data-price="199"
-                                    data-type="meal"
-                                    data-img="../src/assets/images/ChickenChops.png"
-                              >
-                                    <div class="menu-img">
-                                          <img
-                                                src="../src/assets/images/ChickenChops.png"
-                                          />
-                                    </div>
-                                    <div class="menu-info">
-                                          <h3>Chicken + Tofu Combo</h3>
-                                          <p>Perfect pair.</p>
-                                          <span class="price">₱199</span>
-                                    </div>
-                              </div>
+        <div class="quantity-area">
+            <button id="minusQty">-</button>
+            <span id="qtyDisplay">1</span>
+            <button id="addQty">+</button>
+        </div>
 
-                              <div
-                                    class="menu-card"
-                                    data-name="Chicken + Tofu Combo"
-                                    data-price="199"
-                                    data-type="meal"
-                                    data-img="../src/assets/images/ChickenChops.png"
-                              >
-                                    <div class="menu-img">
-                                          <img
-                                                src="../src/assets/images/ChickenChops.png"
-                                          />
-                                    </div>
-                                    <div class="menu-info">
-                                          <h3>Chicken + Tofu Combo</h3>
-                                          <p>Perfect pair.</p>
-                                          <span class="price">₱199</span>
-                                    </div>
-                              </div>
-                        </div>
-                  </section>
-
-                  <section id="extras" class="menu-section">
-                        <h2 class="menu-section-title">Extras</h2>
-
-                        <div class="menu-grid">
-                              <div
-                                    class="menu-card"
-                                    data-name="Extra Rice"
-                                    data-price="20"
-                                    data-type="meal"
-                                    data-img="../src/assets/images/ChickenChops.png"
-                              >
-                                    <div class="menu-img">
-                                          <img
-                                                src="../src/assets/images/ChickenChops.png"
-                                          />
-                                    </div>
-                                    <div class="menu-info">
-                                          <h3>Extra Rice</h3>
-                                          <p>Steamed and fluffy.</p>
-                                          <span class="price">₱20</span>
-                                    </div>
-                              </div>
-
-                              <div
-                                    class="menu-card"
-                                    data-name="Extra Rice"
-                                    data-price="20"
-                                    data-type="meal"
-                                    data-img="../src/assets/images/ChickenChops.png"
-                              >
-                                    <div class="menu-img">
-                                          <img
-                                                src="../src/assets/images/ChickenChops.png"
-                                          />
-                                    </div>
-                                    <div class="menu-info">
-                                          <h3>Extra Rice</h3>
-                                          <p>Steamed and fluffy.</p>
-                                          <span class="price">₱20</span>
-                                    </div>
-                              </div>
-
-                              <div
-                                    class="menu-card"
-                                    data-name="Extra Rice"
-                                    data-price="20"
-                                    data-type="meal"
-                                    data-img="../src/assets/images/ChickenChops.png"
-                              >
-                                    <div class="menu-img">
-                                          <img
-                                                src="../src/assets/images/ChickenChops.png"
-                                          />
-                                    </div>
-                                    <div class="menu-info">
-                                          <h3>Extra Rice</h3>
-                                          <p>Steamed and fluffy.</p>
-                                          <span class="price">₱20</span>
-                                    </div>
-                              </div>
-                        </div>
-                  </section>
-
-                  <div class="order-modal-overlay" id="modalOverlay">
-                        <div class="order-modal">
-                              <h2 class="modal-header" id="modalTitle"></h2>
-                              <p class="modal-sub" id="modalDesc"></p>
-
-                              <div
-                                    class="modal-row"
-                                    id="sizeRow"
-                                    style="display: none"
-                              >
-                                    <label>Select Size:</label>
-                                    <div class="size-options">
-                                          <button data-size="small">
-                                                Small
-                                          </button>
-                                          <button
-                                                data-size="medium"
-                                                class="active"
-                                          >
-                                                Medium
-                                          </button>
-                                          <button data-size="large">
-                                                Large
-                                          </button>
-                                    </div>
-                              </div>
-
-                              <div class="modal-row">
-                                    <label>Quantity:</label>
-                                    <div class="qty-box">
-                                          <button id="qtyMinus">-</button>
-                                          <input
-                                                type="number"
-                                                id="qtyValue"
-                                                value="1"
-                                                min="1"
-                                          />
-                                          <button id="qtyPlus">+</button>
-                                    </div>
-                              </div>
-
-                              <div class="modal-actions">
-                                    <button class="modal-close" id="closeModal">
-                                          Cancel
-                                    </button>
-                                    <button id="confirmOrder">
-                                          Add to Order
-                                    </button>
-                              </div>
-                        </div>
-                  </div>
-
-                  <?php include("../src/partials/footer.php"); ?>
-                  <script src="script.js"></script>
-            </main>
-      </body>
+        <button class="add-cart-btn" id="addToCartBtn">Add to Cart</button>
+    </div>
+</div>
+      <?php include("../src/partials/footer.php"); ?>
+</body>
 </html>

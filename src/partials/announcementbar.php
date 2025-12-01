@@ -2,7 +2,7 @@
       <div class="announcement-content">
       🎉 Limited Time Offer: Get 20% Off Your First Order!
       </div>
-      <button class="announcement-close" aria-label="Close announcement">&times;</button>
+      <button class="announcement-close">&times;</button>
 </div>
 
 <script>

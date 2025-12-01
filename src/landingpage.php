@@ -12,7 +12,7 @@
       </head>
       <body class="landing-page">
             <div class="landing">
-                  <main class="banner" role="main" aria-label="Filipino restaurant hero">
+                  <main class="banner" role="main">
                         <div class="slides">
                               <div class="slide active" style="background-image: url('./assets/images/imbutido.jpeg');"></div>
                               <div class="slide" style="background-image: url('./assets/images/longanisa.jpeg');"></div>
@@ -35,11 +35,11 @@
                         </div>
 
                         <div class="overlay-controls">
-                              <button id="prevBtn" aria-label="Previous image">
+                              <button id="prevBtn">
                               <i class="bi bi-chevron-left"></i>
                               </button>
 
-                              <button id="nextBtn" aria-label="Next image">
+                              <button id="nextBtn">
                               <i class="bi bi-chevron-right"></i>
                               </button>
                         </div>

@@ -1,18 +1,4 @@
-:root {
-      /* Colors */
-      --gray-color: #252525;
-      --black-color: #000;
-      --rice-white: #fff8f0;
-      --creme-color: #fdf9e5;
-      --vivid-red: #cb0000;
-      --green: #46946b;
-      --orange: #ef9458;
-      --red: #d14848;
-      --banana-leaf: #7cb342;
-      --forest-green: #228b22;
-      --aquatic-darkgreen: #0f1d22;
-      --modern-grey: #0b1315;
-}
+/* variables are now centralized in index.css — keep page rules only */
 
 body {
       margin: 0px;
