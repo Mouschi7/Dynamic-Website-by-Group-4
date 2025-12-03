@@ -8,6 +8,65 @@
       font-display: swap;
 }
 
+/* Chef's Picks (compact cards replacing Tapsilog mini-hero) */
+.chefs-picks {
+      padding: 40px 0;
+      max-width: var(--site-max-width);
+      margin: 0 auto;
+      padding-left: var(--container-padding);
+      padding-right: var(--container-padding);
+}
+.picks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+}
+.pick-card {
+      background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.02),
+            rgba(255, 255, 255, 0.01)
+      );
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      align-items: stretch;
+      min-height: 120px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+.pick-image {
+      width: 38%;
+      background-size: cover;
+      background-position: center;
+}
+.pick-body {
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+}
+.pick-body h3 {
+      margin: 0;
+      font-size: 1.1rem;
+}
+.pick-desc {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--light);
+}
+.pick-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+}
+.btn.small {
+      padding: 6px 10px;
+      border-radius: 18px;
+      font-size: 0.9rem;
+}
+
 @font-face {
       font-family: "Miniver";
       src: url("./assets/fonts/Miniver/Miniver-Regular.woff2") format("woff2");
@@ -43,7 +102,7 @@
       --bg-dark-60: rgba(15, 29, 34, 0.6);
       --bg-modern-65: rgba(11, 19, 21, 0.65);
 
-      --text-light: ##edeceb; /* primary light text color used across pages */
+      --light: #f7f4f8;
       --black: #000000;
       --cream: #ceac7d;
 
@@ -95,7 +154,7 @@ body {
       min-height: 100%;
       overflow-x: hidden;
       background: var(--bg-dark);
-      color: var(--text-light);
+      color: var(--light);
       line-height: 1.6;
 }
 
@@ -182,7 +241,7 @@ button:focus,
       justify-content: center;
       padding: 0 20px;
       background: var(--bg-dark);
-      color: var(--text-light);
+      color: var(--light);
       font-size: 0.9rem;
       letter-spacing: 0.2px;
       font-family: "Con", sans-serif;
@@ -207,7 +266,7 @@ button:focus,
       right: 15px;
       background: none;
       border: 0;
-      color: var(--text-light);
+      color: var(--light);
       cursor: pointer;
       padding: 0 10px;
       font-size: 1.2rem;
@@ -241,6 +300,22 @@ button:focus,
       z-index: 1;
       transition: all 0.3s ease-in-out;
 }
+.dropdown-toggle {
+      position: relative;
+      padding-right: 22px;
+}
+.dropdown-toggle::after {
+      content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23CEAC7D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>");
+      display: inline-block;
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%) rotate(0deg);
+      transition: transform 220ms ease;
+}
+.dropdown.open .dropdown-toggle::after {
+      transform: translateY(-50%) rotate(180deg);
+}
 .navbar.announcement-hidden {
       top: 0;
 }
@@ -270,7 +345,7 @@ button:focus,
       font-family: "Josefin-Sans", serif;
       font-weight: 400;
       font-size: clamp(1.6rem, 2.6vw, 2.4rem);
-      color: var(--text-light);
+      color: var(--light);
       letter-spacing: 0.6px;
       line-height: 1;
       white-space: nowrap;
@@ -295,7 +370,7 @@ button:focus,
       position: relative;
       background: transparent;
       border: 0;
-      color: var(--text-light);
+      color: var(--light);
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -308,7 +383,7 @@ button:focus,
 }
 .cart-count {
       background: var(--secondary);
-      color: var(--text-light);
+      color: var(--light);
       padding: 0.06rem 0.48rem;
       border-radius: 20px;
       font-weight: 600;
@@ -373,7 +448,6 @@ button:focus,
       position: absolute;
       top: 100%;
       left: 0;
-      background: var(--rice-white);
       border-radius: var(--border-radius-s);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       padding: 0.5rem 0;
@@ -383,13 +457,14 @@ button:focus,
 .dropdown-menu a {
       display: block;
       padding: 10px 20px;
-      color: var(--gray-color);
+      background: var(--bg-dark);
+      color: var(--cream);
       font-size: var(--font-size-s);
       transition: background 0.3s, color 0.3s;
 }
 .dropdown-menu a:hover {
       background: var(--cream);
-      color: var(--rice-white);
+      color: var(--bg-dark);
 }
 .dropdown:hover .dropdown-menu,
 .dropdown.open .dropdown-menu {
@@ -585,7 +660,7 @@ button:focus,
 .mini-text .brand {
       font-family: "Josefin-Sans", serif;
       font-size: 2rem;
-      color: var(--paragraph);
+      color: var(--light);
 }
 .mini-text .meal-name {
       font-size: 3rem;
@@ -598,7 +673,7 @@ button:focus,
       margin: 1rem 0;
 }
 .meal-desc {
-      color: var(--paragraph);
+      color: var(--light);
       font-size: 1rem;
       margin-bottom: 1.5rem;
 }
@@ -620,57 +695,109 @@ button:focus,
 }
 .specials-slider {
       display: flex;
-      transition: transform 0.6s ease;
+      gap: 8px;
+      overflow-x: auto;
+      /* FEATURES: image left, text right rows */
+      .features {
+            padding: 40px 0;
+            color: var(--light);
+      }
+      .features-inner {
+            max-width: var(--site-max-width);
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+      }
+      .feature-row {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+      }
+      .feature-image img {
+            width: 96px;
+            height: 96px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: transparent;
+      }
+      .feature-body h3 {
+            margin: 0 0 6px 0;
+            font-size: 1.25rem;
+            color: var(--light);
+      }
+      .feature-body p {
+            margin: 0;
+            color: var(--light);
+            opacity: 0.95;
+      }
+      @media (max-width: 768px) {
+            .feature-row {
+                  flex-direction: column;
+                  text-align: center;
+            }
+            .feature-image img {
+                  width: 80px;
+                  height: 80px;
+            }
+      }
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 8px;
 }
 .special-slide {
-      min-width: 100%;
+      flex: 0 0 33.3333%;
+      box-sizing: border-box;
       display: flex;
       justify-content: center;
 }
 .special-card {
       display: flex;
       background: var(--bg-dark);
-      border-radius: 20px;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-      width: 90%;
-      max-width: 850px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      width: 100%;
+      max-width: 420px;
       align-items: stretch;
       margin: 0 auto;
 }
 .special-card img {
-      width: 50%;
+      width: 40%;
       height: 100%;
       object-fit: cover;
 }
 .special-info {
       flex: 1;
-      padding: 2rem;
+      padding: 1rem 1.25rem;
       text-align: left;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 1rem;
+      gap: 0.6rem;
 }
 .special-info h3 {
-      font-size: 1.8rem;
+      font-size: 1.4rem;
       color: var(--rice-white);
       font-family: "Josefin-Sans", serif;
 }
 .special-desc {
-      font-size: 1rem;
-      color: var(--paragraph);
-      line-height: 1.6;
+      font-size: 0.95rem;
+      color: var(--light);
+      line-height: 1.5;
 }
 .special-meta {
       display: flex;
       align-items: center;
       gap: 1rem;
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 0.95rem;
 }
 .price {
-      color: var(--paragraph);
+      color: var(--light);
 }
 .stars {
       color: var(--rice-white);
@@ -693,11 +820,11 @@ button:focus,
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: var(--overlay-dark-40);
+      background: rgba(0, 0, 0, 0.5);
       border: 0;
-      color: var(--rice-white);
-      padding: 12px;
-      border-radius: 50%;
+      color: var(--light);
+      padding: 10px;
+      border-radius: 8px;
       cursor: pointer;
       z-index: 5;
 }
@@ -889,6 +1016,7 @@ button:focus,
 
 /* ABOUT SECTION STYLES */
 .about-section {
+      font-family: "Caviar-Dreams", serif;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -898,7 +1026,7 @@ button:focus,
 }
 .about-section:nth-child(even) {
       flex-direction: row-reverse;
-      background: var(--modern-grey);
+      background: var(--bg-modern);
 }
 .about-section img {
       width: 45%;
@@ -922,14 +1050,12 @@ button:focus,
       z-index: 100;
 }
 .about-text h2 {
-      font-family: "Tiempos", serif;
       color: var(--rice-white);
       font-size: var(--font-size-xl);
       margin-bottom: 1rem;
       z-index: 100;
 }
 .about-text p {
-      font-family: "Open-Sans-Condensed", sans-serif;
       line-height: 1.8;
       font-size: var(--font-size-n);
       z-index: 100;
@@ -938,11 +1064,12 @@ button:focus,
 
 /* FAQs STYLES */
 .faq-section {
-      padding: 5rem 10%;
+      padding: 3rem 10%;
       background: var(--bg-dark);
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
+      font-family: "Caviar-Dreams", serif;
 }
 .faq-left {
       display: flex;
@@ -950,7 +1077,6 @@ button:focus,
       justify-content: center;
 }
 .faq-left h2 {
-      font-family: "Josefin-Sans", serif;
       font-size: var(--font-size-xxl);
       color: var(--cream);
       margin-bottom: 1rem;
@@ -1027,7 +1153,7 @@ button:focus,
 /* MENU - apply modern background to entire menu page */
 .menu {
       background: var(--bg-modern);
-      color: var(--text-light);
+      color: var(--light);
 }
 
 .menu-wrapper {
@@ -1126,6 +1252,100 @@ button:focus,
       margin-top: 10px;
       font-size: 24px;
       opacity: 0.95;
+}
+
+/* ABOUT HERO: match menu hero exactly — centered text layout */
+.about-hero {
+      background: url("assets/images/sample2.jpg") center/cover no-repeat;
+      padding: 120px 0;
+      text-align: center;
+      color: var(--text-light);
+      position: relative;
+}
+
+.about-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 1;
+}
+
+.about-hero-content {
+      position: relative;
+      z-index: 2;
+}
+
+.about-hero-content h1 {
+      font-size: 72px;
+      letter-spacing: 2px;
+      font-weight: 700;
+      margin-bottom: 12px;
+}
+
+.about-hero-content p {
+      margin-top: 8px;
+      font-size: 18px;
+      opacity: 0.95;
+}
+
+.about-section {
+      display: flex;
+      align-items: stretch;
+      gap: 36px;
+      padding: 40px 0;
+      max-width: var(--site-max-width);
+      margin: 0 auto;
+}
+
+.about-section-image {
+      width: 100%;
+      min-height: 400px;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      box-shadow: none;
+}
+
+.about-text {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: var(--container-padding);
+}
+
+.about-text h2 {
+      font-size: var(--font-size-xl);
+      margin-bottom: 12px;
+      margin-top: 0;
+}
+.about-text p {
+      font-size: 1rem;
+      line-height: 1.7;
+      opacity: 0.95;
+}
+
+/* Responsive: stack on small screens and disable fixed bg on mobile */
+@media (max-width: 900px) {
+      .about-hero-inner,
+      .about-section {
+            flex-direction: column;
+      }
+      .about-hero-content,
+      .about-text,
+      .about-hero-image,
+      .about-section-image {
+            width: 100%;
+      }
+      .about-hero {
+            padding: 80px 0;
+      }
+      .about-hero-image,
+      .about-section-image {
+            background-attachment: scroll;
+            min-height: 220px;
+      }
 }
 
 .menu-sidebar {
@@ -1334,6 +1554,8 @@ button:focus,
       color: var(--cream);
       padding: 3rem 2rem;
       font-size: 0.95rem;
+      border-top: 1px solid var(--cream);
+      font-family: "Caviar-Dreams", serif;
 }
 .footer-container {
       display: grid;
@@ -1342,36 +1564,42 @@ button:focus,
       margin-bottom: 2rem;
 }
 .footer-brand h2 {
-      font-family: "Josefin-Sans", serif;
       font-size: 1.8rem;
 }
 .footer-brand p {
-      color: var(--paragraph);
+      color: var(--light);
       margin-top: 0.5rem;
 }
 .footer-column h3 {
-      color: var(--paragraph);
+      color: var(--cream);
       margin-bottom: 1rem;
 }
 .footer-column ul {
       list-style: none;
       padding: 0;
+      color: var(--light);
 }
 .footer-column a {
-      color: var(--paragraph);
+      color: var(--light);
       text-decoration: none;
 }
+
+.footer-column p {
+      color: var(--light);
+}
+
 .footer-column a:hover {
-      color: var(--rice-white);
+      color: var(--cream);
 }
 .footer-socials {
       display: flex;
       gap: 1rem;
       margin-top: 1rem;
+      color: var(--light);
 }
 .footer-bottom {
       text-align: center;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-top: 1px solid var(--cream);
       padding-top: 1rem;
       color: rgba(255, 255, 255, 0.85);
       font-size: 0.8rem;

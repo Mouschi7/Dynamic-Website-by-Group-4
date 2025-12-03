@@ -1,4 +1,150 @@
 document.addEventListener("DOMContentLoaded", () => {
+      /* ---------------- CART MODULE (initialization & helpers) ---------------- */
+      let cart = JSON.parse(localStorage.getItem("siteCart")) || [];
+      const cartSidebar = document.getElementById("cartSidebar");
+      const cartToggle = document.getElementById("cartToggle");
+      const closeCart = document.getElementById("closeCart");
+      const cartItemsEl = document.getElementById("cartItems");
+      const cartTotalEl = document.getElementById("cartTotal");
+      const cartCount = document.getElementById("cartCount");
+      const cartCountHeader = document.getElementById("cartCountHeader");
+      const announcer = document.getElementById("cartAnnouncer") || null;
+
+      function saveCart() {
+            localStorage.setItem("siteCart", JSON.stringify(cart));
+      }
+
+      function formatCurrency(n) {
+            return "₱" + Number(n).toFixed(2);
+      }
+
+      function updateCartUI() {
+            if (!cartItemsEl) return;
+            if (!Array.isArray(cart) || cart.length === 0) {
+                  cartItemsEl.innerHTML =
+                        '<div class="cart-empty">Your cart is empty</div>';
+                  if (cartTotalEl) cartTotalEl.textContent = formatCurrency(0);
+                  if (cartCount) cartCount.textContent = "0";
+                  if (cartCountHeader) cartCountHeader.textContent = "0";
+                  return;
+            }
+
+            let html = "";
+            cart.forEach((it, i) => {
+                  html += `
+                        <div class="cart-item" data-idx="${i}">
+                              <div class="cart-item-left">
+                                    <img src="${
+                                          it.img || ""
+                                    }" alt="" class="cart-item-img" />
+                              </div>
+                              <div class="cart-item-body">
+                                    <div class="cart-item-title">${
+                                          it.name
+                                    }</div>
+                                    <div class="cart-item-qty">Qty: <button class="decrease" data-idx="${i}">-</button> <span class="qty">${
+                        it.qty
+                  }</span> <button class="increase" data-idx="${i}">+</button></div>
+                              </div>
+                              <div class="cart-item-right">
+                                    <div class="cart-item-price">${formatCurrency(
+                                          Number(it.price) * Number(it.qty)
+                                    )}</div>
+                                    <button class="remove" data-idx="${i}">Remove</button>
+                              </div>
+                        </div>`;
+            });
+
+            cartItemsEl.innerHTML = html;
+            const total = cart.reduce(
+                  (s, i) => s + Number(i.price) * Number(i.qty),
+                  0
+            );
+            if (cartTotalEl) cartTotalEl.textContent = formatCurrency(total);
+            const count = cart.reduce((s, i) => s + Number(i.qty), 0);
+            if (cartCount) cartCount.textContent = count;
+            if (cartCountHeader) cartCountHeader.textContent = count;
+            if (announcer)
+                  announcer.textContent = `Cart updated. ${count} item(s) total.`;
+
+            // wire controls inside cart (increase/decrease/remove)
+            cartItemsEl.querySelectorAll(".increase").forEach((btn) =>
+                  btn.addEventListener("click", (e) => {
+                        e.stopPropagation();
+                        const i = +btn.dataset.idx;
+                        cart[i].qty = Number(cart[i].qty) + 1;
+                        saveCart();
+                        updateCartUI();
+                  })
+            );
+
+            cartItemsEl.querySelectorAll(".decrease").forEach((btn) =>
+                  btn.addEventListener("click", (e) => {
+                        e.stopPropagation();
+                        const i = +btn.dataset.idx;
+                        if (cart[i].qty > 1)
+                              cart[i].qty = Number(cart[i].qty) - 1;
+                        else cart.splice(i, 1);
+                        saveCart();
+                        updateCartUI();
+                  })
+            );
+
+            cartItemsEl.querySelectorAll(".remove").forEach((btn) =>
+                  btn.addEventListener("click", (e) => {
+                        e.stopPropagation();
+                        const i = +btn.dataset.idx;
+                        cart.splice(i, 1);
+                        saveCart();
+                        updateCartUI();
+                  })
+            );
+      }
+
+      // expose add/open/close helpers (used elsewhere)
+      function addToCart(item, amount) {
+            if (!item || !item.name) return;
+            const idx = cart.findIndex(
+                  (c) => c.name === item.name && c.price === item.price
+            );
+            if (idx >= 0)
+                  cart[idx].qty = Number(cart[idx].qty) + Number(amount);
+            else
+                  cart.push({
+                        name: item.name,
+                        price: Number(item.price),
+                        qty: Number(amount),
+                        img: item.img || "",
+                  });
+            saveCart();
+            updateCartUI();
+            const ct = document.getElementById("cartToggle");
+            if (ct) {
+                  ct.classList.add("cart-burst");
+                  setTimeout(() => ct.classList.remove("cart-burst"), 260);
+            }
+      }
+
+      function openCartSidebar() {
+            if (!cartSidebar) return;
+            cartSidebar.classList.add("open");
+            cartToggle?.classList.add("expanded");
+            cartSidebar.focus && cartSidebar.focus();
+      }
+
+      function closeCartSidebar() {
+            if (!cartSidebar) return;
+            cartSidebar.classList.remove("open");
+            cartToggle?.classList.remove("expanded");
+      }
+
+      window.addToCart = addToCart;
+      window.openCartSidebar = openCartSidebar;
+      window.closeCartSidebar = closeCartSidebar;
+
+      // ensure cart initially rendered
+      updateCartUI();
+
       /* ---------------- SPECIALS SLIDER ---------------- */
       (function () {
             const slider = document.querySelector(".specials-slider");
@@ -11,157 +157,126 @@ document.addEventListener("DOMContentLoaded", () => {
             const nextBtn = document.getElementById("nextSpecialBtn");
             const prevBtn = document.getElementById("prevSpecialBtn");
 
-            if (
-                  !slider ||
-                  !slides ||
-                  slides.length === 0 ||
-                  indicators.length === 0
-            )
-                  return;
+            // Checkout summary wiring (render inside cart summary area)
+            (function () {
+                  const checkoutBtn = document.getElementById("checkoutBtn");
+                  const cartSummaryEl = document.getElementById("cartSummary");
+                  const confirmCheckoutBtn =
+                        document.getElementById("confirmCheckout");
 
-            let current = 0;
-
-            function showSlide(index) {
-                  if (index < 0) index = slides.length - 1;
-                  if (index >= slides.length) index = 0;
-                  slider.style.transform = `translateX(-${index * 100}%)`;
-                  indicators[current]?.classList.remove("active");
-                  indicators[index]?.classList.add("active");
-                  current = index;
-            }
-
-            function nextSlide() {
-                  showSlide(current + 1);
-            }
-            function prevSlide() {
-                  showSlide(current - 1);
-            }
-
-            nextBtn?.addEventListener("click", nextSlide);
-            prevBtn?.addEventListener("click", prevSlide);
-            indicators.forEach((btn, i) =>
-                  btn.addEventListener("click", () => showSlide(i))
-            );
-
-            setInterval(nextSlide, 5000);
-
-            document.addEventListener("keydown", (e) => {
-                  if (e.key === "ArrowLeft") prevSlide();
-                  if (e.key === "ArrowRight") nextSlide();
-            });
-      })();
-
-      /* ---------------- GLOBAL CART (available on all pages) ---------------- */
-      (function () {
-            const cartToggle = document.getElementById("cartToggle");
-            const cartSidebar = document.getElementById("cartSidebar");
-            const closeCart = document.getElementById("closeCart");
-            const cartCountHeader = document.getElementById("cartCountHeader");
-            const cartItemsEl = document.getElementById("cartItems");
-            const cartTotalEl = document.getElementById("cartTotal");
-            const cartCountEl = document.getElementById("cartCount");
-
-            let cart = JSON.parse(localStorage.getItem("siteCart")) || [];
-
-            function saveCart() {
-                  localStorage.setItem("siteCart", JSON.stringify(cart));
-            }
-
-            function updateCartUI() {
-                  // if there is no cart list element on page, just update counts
-                  if (!cartItemsEl) {
-                        if (cartCountEl)
-                              cartCountEl.textContent = cart.reduce(
-                                    (s, i) => s + Number(i.qty),
-                                    0
-                              );
-                        if (cartCountHeader)
-                              cartCountHeader.textContent = cart.reduce(
-                                    (s, i) => s + Number(i.qty),
-                                    0
-                              );
-                        return;
+                  function formatCurrency(n) {
+                        return "₱" + Number(n).toFixed(2);
                   }
 
-                  cartItemsEl.innerHTML = "";
-                  let total = 0;
-                  cart.forEach((it, idx) => {
-                        total += Number(it.price) * Number(it.qty);
-                        const row = document.createElement("div");
-                        row.className = "cart-item";
-                        row.innerHTML = `
-            <div class="meta">
-              <h4>${it.name}</h4>
-              <p class="cart-price">₱${Number(it.price).toFixed(2)}</p>
-              <div class="controls">
-                <div class="qty-controls">
-                  <button data-idx="${idx}" class="decrease">-</button>
-                  <span class="qty">${it.qty}</span>
-                  <button data-idx="${idx}" class="increase">+</button>
-                </div>
-                <button data-idx="${idx}" class="remove">Delete</button>
-              </div>
-            </div>
-            <div class="thumb"><img src="${
-                  it.img || "../assets/images/sample1.jpg"
-            }" alt="${it.name}" /></div>`;
-                        cartItemsEl.appendChild(row);
+                  checkoutBtn?.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        const cart =
+                              JSON.parse(localStorage.getItem("siteCart")) ||
+                              [];
+                        if (!cart || cart.length === 0)
+                              return alert("Your cart is empty");
+                        const payment =
+                              document.getElementById("paymentSelect")?.value ||
+                              "cash";
+                        const delivery =
+                              document.getElementById("deliverySelect")
+                                    ?.value || "pickup";
+                        const address =
+                              document.getElementById("deliveryAddress")
+                                    ?.value || "";
+
+                        let html = `<div style="padding:10px 0;font-size:0.95rem;color:rgba(0,0,0,0.8);"><div><strong>Payment:</strong> ${payment}</div><div style="margin-top:6px;"><strong>Delivery:</strong> ${delivery}${
+                              delivery === "delivery"
+                                    ? " — " +
+                                      (address || "(no address provided)")
+                                    : ""
+                        }</div></div><hr/>`;
+                        let total = 0;
+                        cart.forEach((it) => {
+                              total += Number(it.price) * Number(it.qty);
+                              html += `<div style="display:flex;justify-content:space-between;align-items:center;margin:8px 0;padding:6px 0;">
+                                    <div style="max-width:70%;">
+                                          <strong style="display:block;font-size:1rem;color:var(--header-color);">${
+                                                it.name
+                                          }</strong>
+                                          <div style="font-size:0.9rem;opacity:0.9">Qty: ${
+                                                it.qty
+                                          } × ${formatCurrency(it.price)}</div>
+                                    </div>
+                                    <div style="text-align:right">${formatCurrency(
+                                          Number(it.price) * Number(it.qty)
+                                    )}</div>
+                              </div><hr/>`;
+                        });
+                        html += `<div style="text-align:right;font-weight:700;padding-top:8px;">Total: ${formatCurrency(
+                              total
+                        )}</div>`;
+
+                        if (cartSummaryEl) {
+                              cartSummaryEl.innerHTML = html;
+                              cartSummaryEl.style.display = "block";
+                        }
+                        if (confirmCheckoutBtn) {
+                              confirmCheckoutBtn.style.display = "inline-block";
+                        }
+                        // scroll cart to top so user sees summary
+                        const cartSidebar =
+                              document.getElementById("cartSidebar");
+                        const cartInner =
+                              cartSidebar?.querySelector(".cart-inner");
+                        if (cartInner)
+                              cartInner.scrollTo({
+                                    top: 0,
+                                    behavior: "smooth",
+                              });
                   });
 
-                  if (cartTotalEl)
-                        cartTotalEl.textContent = `₱${total.toFixed(2)}`;
-                  if (cartCountEl)
-                        cartCountEl.textContent = cart.reduce(
-                              (s, i) => s + Number(i.qty),
-                              0
-                        );
-                  if (cartCountHeader)
-                        cartCountHeader.textContent = cart.reduce(
-                              (s, i) => s + Number(i.qty),
-                              0
-                        );
+                  confirmCheckoutBtn?.addEventListener("click", () => {
+                        const cart =
+                              JSON.parse(localStorage.getItem("siteCart")) ||
+                              [];
+                        if (!cart || cart.length === 0)
+                              return alert("Cart is empty");
+                        const payment =
+                              document.getElementById("paymentSelect")?.value ||
+                              "cash";
+                        const delivery =
+                              document.getElementById("deliverySelect")
+                                    ?.value || "pickup";
+                        const address =
+                              document.getElementById("deliveryAddress")
+                                    ?.value || "";
 
-                  // announcer
-                  const announcer = document.getElementById("cartAnnounce");
-                  if (announcer)
-                        announcer.textContent = `Cart updated. ${cart.reduce(
-                              (s, i) => s + Number(i.qty),
-                              0
-                        )} item(s) total.`;
+                        // build final order details
+                        let details = `Order Summary:\n`;
+                        cart.forEach((it) => {
+                              details += `${it.qty} x ${it.name} @ ₱${Number(
+                                    it.price
+                              ).toFixed(2)} = ₱${(
+                                    Number(it.price) * Number(it.qty)
+                              ).toFixed(2)}\n`;
+                        });
+                        details += `Total: ₱${cart
+                              .reduce(
+                                    (s, i) =>
+                                          s + Number(i.price) * Number(i.qty),
+                                    0
+                              )
+                              .toFixed(
+                                    2
+                              )}\nPayment: ${payment}\nDelivery: ${delivery}${
+                              delivery === "delivery"
+                                    ? "\nAddress: " + address
+                                    : ""
+                        }`;
 
-                  // wire controls (stop propagation to avoid global click closing when clicked)
-                  cartItemsEl.querySelectorAll(".increase").forEach((btn) =>
-                        btn.addEventListener("click", (e) => {
-                              e.stopPropagation();
-                              const i = +btn.dataset.idx;
-                              cart[i].qty = Number(cart[i].qty) + 1;
-                              saveCart();
-                              updateCartUI();
-                        })
-                  );
-
-                  cartItemsEl.querySelectorAll(".decrease").forEach((btn) =>
-                        btn.addEventListener("click", (e) => {
-                              e.stopPropagation();
-                              const i = +btn.dataset.idx;
-                              if (cart[i].qty > 1)
-                                    cart[i].qty = Number(cart[i].qty) - 1;
-                              else cart.splice(i, 1);
-                              saveCart();
-                              updateCartUI();
-                        })
-                  );
-
-                  cartItemsEl.querySelectorAll(".remove").forEach((btn) =>
-                        btn.addEventListener("click", (e) => {
-                              e.stopPropagation();
-                              const i = +btn.dataset.idx;
-                              cart.splice(i, 1);
-                              saveCart();
-                              updateCartUI();
-                        })
-                  );
-            }
+                        // show a confirmation alert (or hook to backend here)
+                        alert(details);
+                        // clear cart and refresh
+                        localStorage.setItem("siteCart", JSON.stringify([]));
+                        location.reload();
+                  });
+            })();
 
             function addToCart(item, amount) {
                   if (!item || !item.name) return;
@@ -235,6 +350,61 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // initial render
             updateCartUI();
+
+            // Slider controls: scroll the flex container by one card per click
+            if (slider && slides && slides.length) {
+                  function getSlideStep() {
+                        const gap = parseFloat(
+                              getComputedStyle(slider).gap || "18"
+                        );
+                        const w = Math.round(
+                              slides[0].getBoundingClientRect().width
+                        );
+                        return w + (isNaN(gap) ? 18 : gap);
+                  }
+
+                  nextBtn?.addEventListener("click", () => {
+                        const step = getSlideStep();
+                        slider.scrollBy({ left: step, behavior: "smooth" });
+                  });
+                  prevBtn?.addEventListener("click", () => {
+                        const step = getSlideStep();
+                        slider.scrollBy({ left: -step, behavior: "smooth" });
+                  });
+
+                  // Indicators: set active based on nearest slide index
+                  function updateSpecialsIndicators() {
+                        if (!indicators || indicators.length === 0) return;
+                        const step = getSlideStep();
+                        const idx = Math.round(slider.scrollLeft / step);
+                        indicators.forEach((ind, i) =>
+                              ind.classList.toggle("active", i === idx)
+                        );
+                  }
+
+                  slider.addEventListener("scroll", () => {
+                        updateSpecialsIndicators();
+                  });
+
+                  // wire indicator clicks to scroll to the corresponding slide
+                  indicators.forEach((ind, i) => {
+                        ind.addEventListener("click", () => {
+                              const step = getSlideStep();
+                              slider.scrollTo({
+                                    left: i * step,
+                                    behavior: "smooth",
+                              });
+                        });
+                  });
+
+                  // update on resize to keep calculations correct
+                  window.addEventListener("resize", () => {
+                        setTimeout(updateSpecialsIndicators, 120);
+                  });
+
+                  // initialize
+                  setTimeout(updateSpecialsIndicators, 80);
+            }
       })();
 
       /* ---------------- MENU CATEGORIES / SCROLL ---------------- */

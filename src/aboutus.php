@@ -16,8 +16,7 @@
       <body>
             <!-- HERO SECTION -->
             <section class="about-hero">
-                  <div class="overlay"></div>
-                  <div class="hero-content">
+                  <div class="about-hero-content">
                         <h1 data-animate="fade-up">About Us</h1>
                         <p data-animate="fade-up" data-delay="0.2s">
                               Discover the story behind
@@ -25,20 +24,19 @@
                               Filipino flavors, creativity, and community come
                               together.
                         </p>
-                  <img class = about-hero-image src="./assets/images/sample2.jpg" alt="Our Story" />
                   </div>
             </section>
 
             <!-- STORY SECTIONS -->
             <section class="about-section">
-                  <img src="./assets/images/sample2.jpg" alt="Our Story" />
+                  <div class="about-section-image" style="background-image:url('./assets/images/sample2.jpg')" aria-hidden="true"></div>
                   <div class="about-text">
                         <h2>Our Story</h2>
                         <p>
                               "Kusina ni Kapetan" was founded inside Antipolo
                               Valley Mall with a passion for serving comfort
                               food that feels like home. Inspired by the
-                              founders' surname “Tan,” the name carries a sense
+                              founders' surname "Tan," the name carries a sense
                               of leadership and community — like a captain
                               leading the kitchen.
                         </p>
@@ -46,7 +44,7 @@
             </section>
 
             <section class="about-section">
-                  <img src="./assets/images/filipino2.jpg" alt="Our Specialties" />
+                  <div class="about-section-image" style="background-image:url('./assets/images/filipino2.jpg')" aria-hidden="true"></div>
                   <div class="about-text">
                         <h2>Our Specialties</h2>
                         <p>
@@ -55,13 +53,13 @@
                               foot-long liempo and Chinese fusion plates such as
                               chicken chops with salted fish fried rice. Every
                               ingredient is chosen with care, from local produce
-                              to Bolinao’s finest dried fish.
+                              to Bolinao's finest dried fish.
                         </p>
                   </div>
             </section>
 
             <section class="about-section">
-                  <img src="./assets/images/food3.jpg" alt="Our Vision" />
+                  <div class="about-section-image" style="background-image:url('./assets/images/food3.jpg')" aria-hidden="true"></div>
                   <div class="about-text">
                         <h2>Our Vision</h2>
                         <p>

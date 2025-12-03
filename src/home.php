@@ -32,6 +32,41 @@
                         </div>
                   </section>
 
+                  <!-- FEATURES SECTION: image left, text right -->
+                  <section class="features">
+                        <div class="features-inner">
+                              <div class="feature-row">
+                                    <div class="feature-image">
+                                          <img src="./assets/images/coffee-icon.png" alt="Coffee" />
+                                    </div>
+                                    <div class="feature-body">
+                                          <h3>Globally sourced. Locally crafted.</h3>
+                                          <p>Cupped, tested, developed and roasted at our Coffee Lab right here in Antipolo.</p>
+                                    </div>
+                              </div>
+
+                              <div class="feature-row">
+                                    <div class="feature-image">
+                                          <img src="./assets/images/recipe-icon.png" alt="Recipes" />
+                                    </div>
+                                    <div class="feature-body">
+                                          <h3>Modern Recipes. Holistic approach.</h3>
+                                          <p>We focus on quality, provenance, and attention to flavor and presentation.</p>
+                                    </div>
+                              </div>
+
+                              <div class="feature-row">
+                                    <div class="feature-image">
+                                          <img src="./assets/images/location-icon.png" alt="Locations" />
+                                    </div>
+                                    <div class="feature-body">
+                                          <h3>No two houses the same.</h3>
+                                          <p>Each location is designed to offer a contemporary, warm dining experience.</p>
+                                    </div>
+                              </div>
+                        </div>
+                  </section>
+
                   <section class="section why-section">
                         <div class="why-container">
                               <div class="why-content-wrapper">
@@ -55,24 +90,23 @@
                         </div>
                   </section>
 
-                  <!-- MINI HERO SECTION -->
-                  <section class="mini-hero">
-                        <div class="mini-content">
-                              <div class="mini-text">
-                                    <h2 class="brand">Kusina ni Kapetan</h2>
-                                    <h1 class="meal-name">Tapsilog</h1>
-                                    <p class="rate-text">
-                                          please<br /><span>rate us</span><br />⭐⭐⭐⭐⭐
-                                    </p>
-                                    <p class="meal-desc">
-                                          “Sarap-sarap ng umaga with our signature Tapsilog —
-                                          tender beef tapa, garlic rice, and a perfectly fried
-                                          egg.”
-                                    </p>
-                                    <div class="mini-buttons">
-                                          <button class="btn orange">Order now</button>
-                                          <button class="btn orange-outline">Order now</button>
-                                    </div>
+                  <!-- FEATURES SECTION (three columns) -->
+                  <section class="features">
+                        <div class="features-inner">
+                              <div class="feature">
+                                    <div class="feature-icon">☕</div>
+                                    <h3>Globally sourced. Locally crafted.</h3>
+                                    <p>Cupped, tested, developed and roasted at our Coffee Lab right here in Antipolo.</p>
+                              </div>
+                              <div class="feature">
+                                    <div class="feature-icon">🍽️</div>
+                                    <h3>Modern Recipes. Holistic approach.</h3>
+                                    <p>We focus on quality, provenance, and attention to flavor and presentation.</p>
+                              </div>
+                              <div class="feature">
+                                    <div class="feature-icon">🏠</div>
+                                    <h3>No two houses the same.</h3>
+                                    <p>Each location is designed to offer a contemporary, warm dining experience.</p>
                               </div>
                         </div>
                   </section>
@@ -187,6 +221,26 @@
                                                       <button class="btn order-btn">
                                                             Order now
                                                       </button>
+                                                </div>
+                                          </div>
+                                    </div>
+                                    
+                                    <div class="special-slide">
+                                          <div class="special-card">
+                                                <img
+                                                      src="./assets/images/filipinofood.avif"
+                                                      alt="Special 5"
+                                                />
+                                                <div class="special-info">
+                                                      <h3>Chef's Special</h3>
+                                                      <p class="special-desc">
+                                                            A rotating chef special—ask in-store for today's flavor.
+                                                      </p>
+                                                      <div class="special-meta">
+                                                            <span class="price">₱160</span>
+                                                            <span class="stars">⭐⭐⭐⭐⭐ 5.0</span>
+                                                      </div>
+                                                      <button class="btn order-btn">Order now</button>
                                                 </div>
                                           </div>
                                     </div>
