@@ -55,6 +55,28 @@
             <!-- items inserted here by JS -->
         </div>
 
+        <div class="cart-options" style="padding:12px 18px;border-top:1px solid rgba(0,0,0,0.04);">
+            <div style="margin-bottom:10px;">
+                <label style="display:block;margin-bottom:6px;font-weight:600;font-size:0.95rem;">Payment Method</label>
+                <select id="paymentSelect" name="payment" style="width:100%;padding:8px;border-radius:6px;border:1px solid rgba(0,0,0,0.1);background:white;">
+                    <option value="cash" selected>Cash on Delivery</option>
+                    <option value="gcash">GCASH</option>
+                    <option value="card">Credit/Debit Card</option>
+                </select>
+            </div>
+
+            <div>
+                <label style="display:block;margin-bottom:6px;font-weight:600;font-size:0.95rem;">Delivery Option</label>
+                <select id="deliverySelect" name="delivery" style="width:100%;padding:8px;border-radius:6px;border:1px solid rgba(0,0,0,0.1);background:white;">
+                    <option value="pickup" selected>Pickup</option>
+                    <option value="delivery">Delivery</option>
+                </select>
+                <div id="deliveryAddressWrap" style="display:none;margin-top:8px;">
+                    <input id="deliveryAddress" type="text" placeholder="Enter delivery address" style="width:100%;padding:8px;border-radius:6px;border:1px solid rgba(0,0,0,0.1);" />
+                </div>
+            </div>
+        </div>
+
         <div class="cart-foot">
             <div class="cart-total">Total: <span id="cartTotal">₱0.00</span></div>
             <div class="cart-actions">
@@ -63,3 +85,15 @@
         </div>
     </div>
 </aside>
+
+<!-- CHECKOUT SUMMARY OVERLAY -->
+<div class="modal-overlay" id="checkoutOverlay" style="display:none;">
+    <div class="modal-box" style="width:520px;text-align:left;">
+        <button class="close-modal" id="closeCheckout">&times;</button>
+        <h3>Checkout Summary</h3>
+        <div id="checkoutSummary" style="max-height:360px;overflow:auto;margin:12px 0;padding-right:8px;"></div>
+        <div style="margin-top:12px;">
+            <button id="confirmCheckout" class="btn-primary">Confirm Order</button>
+        </div>
+    </div>
+</div>

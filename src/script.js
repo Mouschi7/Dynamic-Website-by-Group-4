@@ -239,6 +239,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
       /* ---------------- MENU CATEGORIES / SCROLL ---------------- */
       (function () {
+            function getTopOffset() {
+                  const navbar = document.getElementById("navbar");
+                  const announcement =
+                        document.getElementById("announcement-bar");
+                  let offset = 0;
+                  if (navbar) offset += navbar.offsetHeight;
+                  if (
+                        announcement &&
+                        announcement.classList.contains("visible")
+                  ) {
+                        offset += announcement.offsetHeight;
+                  }
+                  // small breathing room
+                  offset += 12;
+                  return offset;
+            }
+
+            function scrollToSectionById(id) {
+                  const el = document.getElementById(id);
+                  if (!el) return;
+                  const top =
+                        el.getBoundingClientRect().top +
+                        window.pageYOffset -
+                        getTopOffset();
+                  window.scrollTo({ top, behavior: "smooth" });
+            }
+
             const categoryButtons = Array.from(
                   document.querySelectorAll(".menu-categories button")
             );
@@ -249,13 +276,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                     .querySelector(".menu-categories .active")
                                     ?.classList.remove("active");
                               btn.classList.add("active");
-                              const target = document.getElementById(
-                                    btn.dataset.target
-                              );
-                              target?.scrollIntoView({
-                                    behavior: "smooth",
-                                    block: "start",
-                              });
+                              const targetId = btn.dataset.target;
+                              scrollToSectionById(targetId);
                         });
                   });
             }
@@ -266,8 +288,9 @@ document.addEventListener("DOMContentLoaded", () => {
             if (sections.length && categoryButtons.length) {
                   window.addEventListener("scroll", () => {
                         let current = "";
+                        const offset = getTopOffset() + 8;
                         sections.forEach((sec) => {
-                              const top = sec.offsetTop - 150;
+                              const top = sec.offsetTop - offset;
                               if (pageYOffset >= top) current = sec.id;
                         });
 
@@ -290,10 +313,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                     .querySelector(".menu-sidebar .active")
                                     ?.classList.remove("active");
                               btn.classList.add("active");
-                              const target = document.getElementById(
-                                    btn.dataset.target
-                              );
-                              target?.scrollIntoView({ behavior: "smooth" });
+                              const targetId = btn.dataset.target;
+                              scrollToSectionById(targetId);
                         });
                   });
             }
@@ -408,101 +429,314 @@ document.addEventListener("DOMContentLoaded", () => {
                   if (lastFocused) lastFocused.focus();
             }
 
-            /* -- modal: detailed item modal -- */
-            const modalTitle = document.getElementById("modalTitle");
-            const modalDesc = document.getElementById("modalDesc");
-            const qtyValue = document.getElementById("qtyValue");
-            const sizeRow = document.getElementById("sizeRow");
+            /* -- modal: simplified item modal (menu.php) -- */
+            const modalItemName = document.getElementById("modalItemName");
+            const modalItemPrice = document.getElementById("modalItemPrice");
+            const qtyDisplay = document.getElementById("qtyDisplay");
+            const minusQty = document.getElementById("minusQty");
+            const addQty = document.getElementById("addQty");
+            const addToCartBtn = document.getElementById("addToCartBtn");
+            const closeModalBtn = document.getElementById("closeModal");
 
-            if (modalOverlay && modalTitle && modalDesc && qtyValue) {
-                  let selectedItem = {};
-                  document.querySelectorAll(".menu-card").forEach((card) => {
-                        card.addEventListener("click", () => {
-                              selectedItem = { ...card.dataset };
-                              modalTitle.textContent = selectedItem.name || "";
-                              modalDesc.textContent = selectedItem.price
-                                    ? "Price: ₱" + selectedItem.price
-                                    : "";
-                              qtyValue.value = 1;
-                              if (selectedItem.type === "drink" && sizeRow)
-                                    sizeRow.style.display = "block";
-                              else if (sizeRow) sizeRow.style.display = "none";
+            const modalItemImage = document.getElementById("modalItemImage");
+            const sizeRowEl = document.getElementById("sizeRow");
+            const modalIngredientsEl =
+                  document.getElementById("modalIngredients");
+
+            if (modalOverlay && modalItemName && modalItemPrice && qtyDisplay) {
+                  let selectedItem = null;
+                  let qty = 1;
+
+                  function updateQty() {
+                        qtyDisplay.textContent = qty;
+                  }
+
+                  // Open modal when Order buttons are clicked (buttons have class .modal-btn)
+                  document.querySelectorAll(".modal-btn").forEach((btn) => {
+                        btn.addEventListener("click", (e) => {
+                              e.stopPropagation();
+                              const item =
+                                    btn.dataset.item ||
+                                    btn.closest(".menu-card")?.dataset.name ||
+                                    "";
+                              const price =
+                                    btn.dataset.price ||
+                                    btn.closest(".menu-card")?.dataset.price ||
+                                    "";
+                              selectedItem = {
+                                    name: item,
+                                    price: Number(price),
+                              };
+
+                              // images from data attributes (size variants)
+                              if (btn.dataset.imgSmall)
+                                    selectedItem.imgSmall =
+                                          btn.dataset.imgSmall;
+                              if (btn.dataset.imgMedium)
+                                    selectedItem.imgMedium =
+                                          btn.dataset.imgMedium;
+                              if (btn.dataset.imgLarge)
+                                    selectedItem.imgLarge =
+                                          btn.dataset.imgLarge;
+
+                              // ingredients
+                              if (btn.dataset.ingredients)
+                                    selectedItem.ingredients =
+                                          btn.dataset.ingredients;
+
+                              // try to get image from nearby card if no data-img provided
+                              const imgEl = btn
+                                    .closest(".menu-card")
+                                    ?.querySelector("img");
+                              if (!selectedItem.imgLarge && imgEl)
+                                    selectedItem.img = imgEl.src;
+
+                              modalItemName.textContent =
+                                    selectedItem.name || "";
+                              modalItemPrice.textContent =
+                                    selectedItem.price || "";
+                              // image preview
+                              const previewSrc =
+                                    selectedItem.imgLarge ||
+                                    selectedItem.img ||
+                                    selectedItem.imgMedium ||
+                                    selectedItem.imgSmall ||
+                                    "";
+                              if (modalItemImage && previewSrc)
+                                    modalItemImage.src = previewSrc;
+
+                              // show size options for drinks (if any size images present)
+                              if (
+                                    selectedItem.imgSmall ||
+                                    selectedItem.imgMedium ||
+                                    selectedItem.imgLarge ||
+                                    btn.dataset.type === "drink"
+                              ) {
+                                    if (sizeRowEl)
+                                          sizeRowEl.style.display = "block";
+                              } else if (sizeRowEl)
+                                    sizeRowEl.style.display = "none";
+
+                              // ingredients display
+                              if (modalIngredientsEl)
+                                    modalIngredientsEl.textContent =
+                                          selectedItem.ingredients
+                                                ? "Ingredients: " +
+                                                  selectedItem.ingredients
+                                                : "";
+
+                              qty = 1;
+                              updateQty();
                               openModal(modalOverlay);
                         });
                   });
 
-                  document
-                        .getElementById("qtyMinus")
-                        ?.addEventListener("click", () => {
-                              if (+qtyValue.value > 1)
-                                    qtyValue.value = +qtyValue.value - 1;
-                        });
-                  document
-                        .getElementById("qtyPlus")
-                        ?.addEventListener(
-                              "click",
-                              () => (qtyValue.value = +qtyValue.value + 1)
-                        );
-                  document
-                        .getElementById("closeModal")
-                        ?.addEventListener("click", () =>
-                              closeModal(modalOverlay)
-                        );
+                  minusQty?.addEventListener("click", (e) => {
+                        e.stopPropagation();
+                        if (qty > 1) qty--;
+                        updateQty();
+                  });
+                  addQty?.addEventListener("click", (e) => {
+                        e.stopPropagation();
+                        qty++;
+                        updateQty();
+                  });
 
-                  document
-                        .querySelectorAll(".size-options button")
-                        .forEach((btn) => {
-                              btn.addEventListener("click", () => {
-                                    document
-                                          .querySelector(
-                                                ".size-options .active"
-                                          )
-                                          ?.classList.remove("active");
-                                    btn.classList.add("active");
-                                    const size = btn.dataset.size;
-                                    const cardImage = document.querySelector(
-                                          ".menu-card[data-name='" +
-                                                selectedItem.name +
-                                                "'] .menu-img img"
-                                    );
-                                    if (
-                                          selectedItem["img-" + size] &&
-                                          cardImage
-                                    )
-                                          cardImage.src =
-                                                selectedItem["img-" + size];
+                  closeModalBtn?.addEventListener("click", () =>
+                        closeModal(modalOverlay)
+                  );
+
+                  // click outside modal to close
+                  modalOverlay.addEventListener("click", (e) => {
+                        if (e.target === modalOverlay) closeModal(modalOverlay);
+                  });
+
+                  // size option handling (buttons inside sizeRow)
+                  if (sizeRowEl) {
+                        sizeRowEl
+                              .querySelectorAll(".size-btn")
+                              .forEach((btn) => {
+                                    btn.addEventListener("click", (e) => {
+                                          e.stopPropagation();
+                                          sizeRowEl
+                                                .querySelectorAll(".size-btn")
+                                                .forEach((b) =>
+                                                      b.classList.remove(
+                                                            "active"
+                                                      )
+                                                );
+                                          btn.classList.add("active");
+                                          const size = btn.dataset.size;
+                                          if (!selectedItem) return;
+                                          const src =
+                                                selectedItem[
+                                                      "img" +
+                                                            (size
+                                                                  .charAt(0)
+                                                                  .toUpperCase() +
+                                                                  size.slice(1))
+                                                ] ||
+                                                selectedItem[
+                                                      "img" +
+                                                            (size === "medium"
+                                                                  ? "Medium"
+                                                                  : "")
+                                                ] ||
+                                                selectedItem.img ||
+                                                "";
+                                          if (modalItemImage && src)
+                                                modalItemImage.src = src;
+                                    });
                               });
-                        });
+                  }
 
-                  document
-                        .getElementById("confirmOrder")
-                        ?.addEventListener("click", () => {
-                              const sizeText =
-                                    selectedItem.type === "drink"
-                                          ? document.querySelector(
-                                                  ".size-options .active"
-                                            )?.dataset.size || ""
-                                          : "";
-                              alert(
-                                    `Added to cart:\n${
-                                          selectedItem.name || ""
-                                    }\nQty: ${qtyValue.value}${
-                                          sizeText ? "\nSize: " + sizeText : ""
-                                    }`
-                              );
-                              closeModal(modalOverlay);
-                        });
+                  addToCartBtn?.addEventListener("click", () => {
+                        if (!selectedItem) return alert("No item selected");
+                        const itemToAdd = {
+                              name: selectedItem.name,
+                              price: Number(selectedItem.price) || 0,
+                              qty: qty,
+                              img:
+                                    modalItemImage?.src ||
+                                    selectedItem.img ||
+                                    "",
+                        };
+                        if (typeof window.addToCart === "function")
+                              window.addToCart(itemToAdd, qty);
+                        closeModal(modalOverlay);
+                        if (typeof window.openCartSidebar === "function")
+                              window.openCartSidebar();
+                  });
             }
 
-            addCartBtn?.addEventListener("click", () => {
-                  if (!selected) return alert("No item selected");
-                  // use the global cart API (available across pages)
-                  if (typeof window.addToCart === "function")
-                        window.addToCart(selected, qty);
-                  closeModal(simpleModalOverlay);
-                  if (typeof window.openCartSidebar === "function")
-                        window.openCartSidebar();
-            });
+            // Delivery address toggle in cart sidebar
+            (function () {
+                  const deliverySelect =
+                        document.getElementById("deliverySelect");
+                  const addrWrap = document.getElementById(
+                        "deliveryAddressWrap"
+                  );
+                  deliverySelect?.addEventListener("change", () => {
+                        if (addrWrap)
+                              addrWrap.style.display =
+                                    deliverySelect.value === "delivery"
+                                          ? "block"
+                                          : "none";
+                  });
+            })();
+
+            // Checkout summary wiring
+            (function () {
+                  const checkoutBtn = document.getElementById("checkoutBtn");
+                  const checkoutOverlay =
+                        document.getElementById("checkoutOverlay");
+                  const closeCheckout =
+                        document.getElementById("closeCheckout");
+                  const checkoutSummary =
+                        document.getElementById("checkoutSummary");
+                  const confirmCheckout =
+                        document.getElementById("confirmCheckout");
+
+                  function formatCurrency(n) {
+                        return "₱" + Number(n).toFixed(2);
+                  }
+
+                  checkoutBtn?.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        const cart =
+                              JSON.parse(localStorage.getItem("siteCart")) ||
+                              [];
+                        if (!cart || cart.length === 0)
+                              return alert("Your cart is empty");
+                        const payment =
+                              document.getElementById("paymentSelect")?.value ||
+                              "cash";
+                        const delivery =
+                              document.getElementById("deliverySelect")
+                                    ?.value || "pickup";
+                        const address =
+                              document.getElementById("deliveryAddress")
+                                    ?.value || "";
+
+                        let html = `<div><strong>Payment:</strong> ${payment}</div><div><strong>Delivery:</strong> ${delivery}${
+                              delivery === "delivery"
+                                    ? " — " +
+                                      (address || "(no address provided)")
+                                    : ""
+                        }</div><hr/>`;
+                        let total = 0;
+                        cart.forEach((it) => {
+                              total += Number(it.price) * Number(it.qty);
+                              html += `<div style="display:flex;justify-content:space-between;align-items:center;margin:8px 0;"><div><strong>${
+                                    it.name
+                              }</strong><div style="font-size:0.9rem;opacity:0.9">Qty: ${
+                                    it.qty
+                              } × ${formatCurrency(
+                                    it.price
+                              )}</div></div><div style="text-align:right">${formatCurrency(
+                                    Number(it.price) * Number(it.qty)
+                              )}</div></div>`;
+                        });
+                        html += `<hr/><div style="text-align:right;font-weight:700">Total: ${formatCurrency(
+                              total
+                        )}</div>`;
+                        checkoutSummary.innerHTML = html;
+                        if (checkoutOverlay) {
+                              checkoutOverlay.style.display = "flex";
+                              checkoutOverlay.classList.add("open", "show");
+                        }
+                  });
+
+                  closeCheckout?.addEventListener("click", () => {
+                        if (checkoutOverlay) {
+                              checkoutOverlay.classList.remove("open", "show");
+                              checkoutOverlay.style.display = "none";
+                        }
+                  });
+
+                  confirmCheckout?.addEventListener("click", () => {
+                        const cart =
+                              JSON.parse(localStorage.getItem("siteCart")) ||
+                              [];
+                        if (!cart || cart.length === 0)
+                              return alert("Cart is empty");
+                        const payment =
+                              document.getElementById("paymentSelect")?.value ||
+                              "cash";
+                        const delivery =
+                              document.getElementById("deliverySelect")
+                                    ?.value || "pickup";
+                        const address =
+                              document.getElementById("deliveryAddress")
+                                    ?.value || "";
+                        // build final order details
+                        let details = `Order Summary:\n`;
+                        cart.forEach((it) => {
+                              details += `${it.qty} x ${it.name} @ ₱${Number(
+                                    it.price
+                              ).toFixed(2)} = ₱${(
+                                    Number(it.price) * Number(it.qty)
+                              ).toFixed(2)}\n`;
+                        });
+                        details += `Total: ₱${cart
+                              .reduce(
+                                    (s, i) =>
+                                          s + Number(i.price) * Number(i.qty),
+                                    0
+                              )
+                              .toFixed(
+                                    2
+                              )}\nPayment: ${payment}\nDelivery: ${delivery}${
+                              delivery === "delivery"
+                                    ? "\nAddress: " + address
+                                    : ""
+                        }`;
+                        alert(details);
+                        // clear cart and refresh
+                        localStorage.setItem("siteCart", JSON.stringify([]));
+                        location.reload();
+                  });
+            })();
 
             // cart UI and interactions are handled by the global cart module
       })();
