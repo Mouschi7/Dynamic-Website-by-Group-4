@@ -697,7 +697,8 @@ button:focus,
       display: flex;
       gap: 8px;
       overflow-x: auto;
-      /* FEATURES: image left, text right rows */
+}
+
       .features {
             padding: 40px 0;
             color: var(--light);

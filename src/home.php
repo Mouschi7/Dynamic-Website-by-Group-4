@@ -90,26 +90,7 @@
                         </div>
                   </section>
 
-                  <!-- FEATURES SECTION (three columns) -->
-                  <section class="features">
-                        <div class="features-inner">
-                              <div class="feature">
-                                    <div class="feature-icon">☕</div>
-                                    <h3>Globally sourced. Locally crafted.</h3>
-                                    <p>Cupped, tested, developed and roasted at our Coffee Lab right here in Antipolo.</p>
-                              </div>
-                              <div class="feature">
-                                    <div class="feature-icon">🍽️</div>
-                                    <h3>Modern Recipes. Holistic approach.</h3>
-                                    <p>We focus on quality, provenance, and attention to flavor and presentation.</p>
-                              </div>
-                              <div class="feature">
-                                    <div class="feature-icon">🏠</div>
-                                    <h3>No two houses the same.</h3>
-                                    <p>Each location is designed to offer a contemporary, warm dining experience.</p>
-                              </div>
-                        </div>
-                  </section>
+                  
 
                   <!-- SPECIALS SECTION -->
                   <section class="specials">
